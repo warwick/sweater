@@ -51,6 +51,7 @@
 		5F8C004B2659952C00A650C4 /* SweaterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SweaterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8C004F2659952C00A650C4 /* SweaterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweaterUITests.swift; sourceTree = "<group>"; };
 		5F8C00512659952C00A650C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F8C005D2659954A00A650C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		5F8C00292659952800A650C4 /* Sweater */ = {
 			isa = PBXGroup;
 			children = (
+				5F8C005D2659954A00A650C4 /* README.md */,
 				5F8C002A2659952800A650C4 /* AppDelegate.swift */,
 				5F8C002C2659952800A650C4 /* SceneDelegate.swift */,
 				5F8C002E2659952800A650C4 /* ViewController.swift */,
