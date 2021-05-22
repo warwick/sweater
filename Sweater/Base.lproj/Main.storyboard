@@ -1,24 +1,336 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sweater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-JU-T5z">
+                                <rect key="frame" x="0.0" y="44" width="414" height="782.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jpF-dh-qrN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="weatherForLocation" id="dQB-Hp-XRu" customClass="WeatherForLocationCollectionViewCell" customModule="Sweater" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-17.5" width="414" height="817"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBv-Cq-4DR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUw-xM-LPP">
+                                                    <rect key="frame" x="12" y="0.0" width="390" height="817"/>
+                                                    <color key="backgroundColor" name="Location Card Background"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadow.radius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                            <size key="value" width="0.0" height="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7y-Lj-Vj4">
+                                                    <rect key="frame" x="12" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="2fU-5G-wVu"/>
+                                                        <constraint firstAttribute="height" constant="44" id="H8k-ST-tDd"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="Location Card Secondary Text"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                    </state>
+                                                </button>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFN-cd-GO7">
+                                                    <rect key="frame" x="138.5" y="137" width="137.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLy-yZ-Apl">
+                                                    <rect key="frame" x="131" y="281" width="152" height="175"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="128"/>
+                                                    <color key="textColor" name="Location Card Primary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l26-6U-Fk1">
+                                                    <rect key="frame" x="283" y="281" width="38.5" height="131.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="96"/>
+                                                    <color key="textColor" name="Location Card Primary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms8-8m-cPI">
+                                                    <rect key="frame" x="120.5" y="162" width="173" height="66"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                                    <color key="textColor" name="Location Card Primary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Few Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frY-Qv-cGx">
+                                                    <rect key="frame" x="143" y="221" width="128" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High: 18°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKs-H8-MBu">
+                                                    <rect key="frame" x="32" y="739" width="79" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low: 10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjw-83-RGA">
+                                                    <rect key="frame" x="32" y="772" width="74" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind: 8 kph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-xB-2M3">
+                                                    <rect key="frame" x="280" y="739" width="102" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 70%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-rJ-c8w">
+                                                    <rect key="frame" x="257" y="772" width="125" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your mother wants you to bring a sweater, but your friends will all make fun of you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNn-6P-C5X">
+                                                    <rect key="frame" x="32" y="464" width="351.5" height="98.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="24"/>
+                                                    <color key="textColor" name="Location Card Primary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="l26-6U-Fk1" firstAttribute="top" secondItem="iLy-yZ-Apl" secondAttribute="top" id="7lG-jU-acx"/>
+                                                <constraint firstItem="hUw-xM-LPP" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="12" id="7xS-Tx-KXw"/>
+                                                <constraint firstItem="hUw-xM-LPP" firstAttribute="top" secondItem="tBv-Cq-4DR" secondAttribute="top" id="9ka-L6-omT"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vjw-83-RGA" secondAttribute="bottom" constant="20" id="AXi-TY-cK8"/>
+                                                <constraint firstAttribute="bottom" secondItem="jHe-rJ-c8w" secondAttribute="bottom" constant="20" id="Efz-dv-waJ"/>
+                                                <constraint firstItem="iLy-yZ-Apl" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="FRw-DP-J8h"/>
+                                                <constraint firstItem="iLy-yZ-Apl" firstAttribute="top" secondItem="frY-Qv-cGx" secondAttribute="bottom" constant="27" id="Gxi-F1-n1T"/>
+                                                <constraint firstItem="JNn-6P-C5X" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="IdX-ua-N4i"/>
+                                                <constraint firstItem="p7y-Lj-Vj4" firstAttribute="top" secondItem="hUw-xM-LPP" secondAttribute="top" id="KyU-Lk-754"/>
+                                                <constraint firstItem="ms8-8m-cPI" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="MBv-mp-gVb"/>
+                                                <constraint firstItem="p7y-Lj-Vj4" firstAttribute="leading" secondItem="hUw-xM-LPP" secondAttribute="leading" id="NZU-Qw-HhD"/>
+                                                <constraint firstItem="JNn-6P-C5X" firstAttribute="top" secondItem="iLy-yZ-Apl" secondAttribute="bottom" constant="8" symbolic="YES" id="OpI-eK-fNs"/>
+                                                <constraint firstItem="iLy-yZ-Apl" firstAttribute="centerY" secondItem="tBv-Cq-4DR" secondAttribute="centerY" constant="-40" id="Q0Z-Db-hFY"/>
+                                                <constraint firstItem="l26-6U-Fk1" firstAttribute="leading" secondItem="iLy-yZ-Apl" secondAttribute="trailing" id="Wyc-LD-4lm"/>
+                                                <constraint firstAttribute="trailing" secondItem="hUw-xM-LPP" secondAttribute="trailing" constant="12" id="b3r-bM-mLF"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l26-6U-Fk1" secondAttribute="trailing" constant="20" symbolic="YES" id="coZ-Pa-LGB"/>
+                                                <constraint firstItem="ah4-xB-2M3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IKs-H8-MBu" secondAttribute="trailing" constant="8" symbolic="YES" id="e16-N6-Tgz"/>
+                                                <constraint firstItem="jFN-cd-GO7" firstAttribute="centerX" secondItem="ms8-8m-cPI" secondAttribute="centerX" id="eNx-mo-j2z"/>
+                                                <constraint firstAttribute="bottom" secondItem="hUw-xM-LPP" secondAttribute="bottom" id="fdK-ab-aw7"/>
+                                                <constraint firstItem="IKs-H8-MBu" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="g6q-dy-Lxl"/>
+                                                <constraint firstItem="Vjw-83-RGA" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="gKZ-fy-IQr"/>
+                                                <constraint firstAttribute="trailing" secondItem="ah4-xB-2M3" secondAttribute="trailing" constant="32" id="goT-Qu-NyF"/>
+                                                <constraint firstItem="frY-Qv-cGx" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="lQJ-aM-bt0"/>
+                                                <constraint firstItem="Vjw-83-RGA" firstAttribute="top" secondItem="IKs-H8-MBu" secondAttribute="bottom" constant="8" symbolic="YES" id="oG2-j4-xS7"/>
+                                                <constraint firstItem="jHe-rJ-c8w" firstAttribute="top" secondItem="ah4-xB-2M3" secondAttribute="bottom" constant="8" symbolic="YES" id="qFJ-XB-5km"/>
+                                                <constraint firstAttribute="trailing" secondItem="jHe-rJ-c8w" secondAttribute="trailing" constant="32" id="qU3-cH-qwx"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JNn-6P-C5X" secondAttribute="trailing" constant="20" symbolic="YES" id="qsR-yM-dje"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p7y-Lj-Vj4" secondAttribute="trailing" constant="20" symbolic="YES" id="t3W-E6-BLi"/>
+                                                <constraint firstItem="jFN-cd-GO7" firstAttribute="bottom" secondItem="ms8-8m-cPI" secondAttribute="top" id="ti0-Yr-TEX"/>
+                                                <constraint firstItem="jHe-rJ-c8w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vjw-83-RGA" secondAttribute="trailing" constant="8" symbolic="YES" id="xFN-xF-01g"/>
+                                                <constraint firstItem="frY-Qv-cGx" firstAttribute="top" secondItem="ms8-8m-cPI" secondAttribute="bottom" constant="-7" id="xQj-4X-PrB"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="817"/>
+                                        <connections>
+                                            <outlet property="cardBackground" destination="hUw-xM-LPP" id="exh-xd-2AI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settings" id="8g6-gU-Kin">
+                                        <rect key="frame" x="414" y="-17.5" width="414" height="817"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ofz-HP-j0g">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUn-JU-fo2">
+                                                    <rect key="frame" x="12" y="744.5" width="390" height="72"/>
+                                                    <color key="backgroundColor" name="Settings Card Background"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="72" id="2sa-y1-GA9"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadow.radius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                            <size key="value" width="0.0" height="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ss-Wd-UbU">
+                                                    <rect key="frame" x="12" y="0.0" width="390" height="733"/>
+                                                    <color key="backgroundColor" name="Settings Card Background"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadow.radius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                            <size key="value" width="0.0" height="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new city:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fls-1V-5Ld">
+                                                    <rect key="frame" x="32" y="20" width="350" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="City" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-Ob-x2s">
+                                                    <rect key="frame" x="32" y="45" width="350" height="51"/>
+                                                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                                </searchBar>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KS7-ZE-JuJ">
+                                                    <rect key="frame" x="32" y="89.5" width="350" height="643.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ePe-oA-NwS">
+                                                            <rect key="frame" x="0.0" y="24.5" width="350" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePe-oA-NwS" id="7rw-Fm-H8Z">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </tableViewCellContentView>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-eC-A0B">
+                                                    <rect key="frame" x="227" y="766" width="155" height="32"/>
+                                                    <segments>
+                                                        <segment title="Celcius"/>
+                                                        <segment title="Farenheit"/>
+                                                    </segments>
+                                                    <color key="selectedSegmentTintColor" name="Accent Color"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred Units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN7-bk-39n">
+                                                    <rect key="frame" x="32" y="769" width="129" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="top" secondItem="Ygt-Ob-x2s" secondAttribute="bottom" constant="-6.5" id="4tN-g5-xtC"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Ss-Wd-UbU" secondAttribute="trailing" constant="12" id="C0g-rH-ceL"/>
+                                                <constraint firstItem="Ygt-Ob-x2s" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="32" id="Edy-xR-7rl"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Ss-Wd-UbU" secondAttribute="bottom" constant="84" id="IKP-kA-1U8"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Sh-eC-A0B" secondAttribute="trailing" constant="32" id="ISI-13-Rml"/>
+                                                <constraint firstAttribute="bottom" secondItem="8Sh-eC-A0B" secondAttribute="bottom" constant="20" id="J7u-JX-AMp"/>
+                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="bottom" secondItem="Ygt-Ob-x2s" secondAttribute="top" id="L7r-dR-cdf"/>
+                                                <constraint firstItem="sUn-JU-fo2" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="12" id="P9A-4N-4G9"/>
+                                                <constraint firstItem="FN7-bk-39n" firstAttribute="centerY" secondItem="8Sh-eC-A0B" secondAttribute="centerY" id="Pyq-r3-eNK"/>
+                                                <constraint firstItem="6Ss-Wd-UbU" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="12" id="R0b-rc-MZR"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" constant="32" id="WIt-ON-aKd"/>
+                                                <constraint firstItem="6Ss-Wd-UbU" firstAttribute="top" secondItem="ofz-HP-j0g" secondAttribute="top" id="Xv8-O0-T2x"/>
+                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" id="c05-mB-Lem"/>
+                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" id="dSt-03-LH6"/>
+                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="leading" secondItem="Ygt-Ob-x2s" secondAttribute="leading" id="duL-m2-zXT"/>
+                                                <constraint firstItem="8Sh-eC-A0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FN7-bk-39n" secondAttribute="trailing" constant="8" symbolic="YES" id="g1B-0t-FB6"/>
+                                                <constraint firstItem="FN7-bk-39n" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="32" id="oFF-CJ-Uf9"/>
+                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="bottom" secondItem="6Ss-Wd-UbU" secondAttribute="bottom" id="p9p-O5-w2I"/>
+                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="leading" secondItem="Ygt-Ob-x2s" secondAttribute="leading" id="w1K-AA-Mww"/>
+                                                <constraint firstAttribute="bottom" secondItem="sUn-JU-fo2" secondAttribute="bottom" constant="0.5" id="w1O-4S-uNa"/>
+                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="top" secondItem="6Ss-Wd-UbU" secondAttribute="top" constant="20" id="yPa-qC-U91"/>
+                                                <constraint firstAttribute="trailing" secondItem="sUn-JU-fo2" secondAttribute="trailing" constant="12" id="z8Y-QZ-0Sq"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="817"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pd2-Qg-kfx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lii-xN-tun"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LCa-Wv-ZpW">
+                                <rect key="frame" x="146" y="834.5" width="122" height="27.5"/>
+                                <color key="pageIndicatorTintColor" systemColor="systemGray3Color"/>
+                                <color key="currentPageIndicatorTintColor" name="Location Card Background"/>
+                            </pageControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tLs-JU-T5z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2cN-Wc-o01"/>
+                            <constraint firstItem="tLs-JU-T5z" firstAttribute="bottom" secondItem="LCa-Wv-ZpW" secondAttribute="top" constant="-8" id="6lY-tE-vhf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tLs-JU-T5z" secondAttribute="trailing" id="FtB-r6-QB8"/>
+                            <constraint firstItem="LCa-Wv-ZpW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Jgr-Im-FDa"/>
+                            <constraint firstItem="tLs-JU-T5z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iCm-Mz-Lkx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LCa-Wv-ZpW" secondAttribute="bottom" id="raG-xx-T76"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="tLs-JU-T5z" id="XMb-ZO-wxe"/>
+                        <outlet property="pageControl" destination="LCa-Wv-ZpW" id="8hp-BI-jKd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="87.723214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="Accent Color">
+            <color red="0.2274509817" green="0.52941179279999995" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Location Card Background">
+            <color red="0.2274509817" green="0.52941179279999995" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Location Card Primary Text">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Location Card Secondary Text">
+            <color red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Settings Card Background">
+            <color red="0.81678720072013178" green="0.89007232043207918" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

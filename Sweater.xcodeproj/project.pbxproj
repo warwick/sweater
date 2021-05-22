@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		5F8C002B2659952800A650C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002A2659952800A650C4 /* AppDelegate.swift */; };
 		5F8C002D2659952800A650C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002C2659952800A650C4 /* SceneDelegate.swift */; };
-		5F8C002F2659952800A650C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002E2659952800A650C4 /* ViewController.swift */; };
+		5F8C002F2659952800A650C4 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002E2659952800A650C4 /* WeatherViewController.swift */; };
 		5F8C00322659952800A650C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C00302659952800A650C4 /* Main.storyboard */; };
 		5F8C00352659952800A650C4 /* Sweater.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C00332659952800A650C4 /* Sweater.xcdatamodeld */; };
 		5F8C00372659952C00A650C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C00362659952C00A650C4 /* Assets.xcassets */; };
 		5F8C003A2659952C00A650C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C00382659952C00A650C4 /* LaunchScreen.storyboard */; };
 		5F8C00452659952C00A650C4 /* SweaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C00442659952C00A650C4 /* SweaterTests.swift */; };
 		5F8C00502659952C00A650C4 /* SweaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C004F2659952C00A650C4 /* SweaterUITests.swift */; };
+		5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		5F8C00272659952800A650C4 /* Sweater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8C002A2659952800A650C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8C002C2659952800A650C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5F8C002E2659952800A650C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F8C002E2659952800A650C4 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5F8C00312659952800A650C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F8C00342659952800A650C4 /* Sweater.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sweater.xcdatamodel; sourceTree = "<group>"; };
 		5F8C00362659952C00A650C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		5F8C004F2659952C00A650C4 /* SweaterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweaterUITests.swift; sourceTree = "<group>"; };
 		5F8C00512659952C00A650C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8C005D2659954A00A650C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,8 @@
 				5F8C005D2659954A00A650C4 /* README.md */,
 				5F8C002A2659952800A650C4 /* AppDelegate.swift */,
 				5F8C002C2659952800A650C4 /* SceneDelegate.swift */,
-				5F8C002E2659952800A650C4 /* ViewController.swift */,
+				5F8C002E2659952800A650C4 /* WeatherViewController.swift */,
+				5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */,
 				5F8C00302659952800A650C4 /* Main.storyboard */,
 				5F8C00362659952C00A650C4 /* Assets.xcassets */,
 				5F8C00382659952C00A650C4 /* LaunchScreen.storyboard */,
@@ -263,7 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8C002F2659952800A650C4 /* ViewController.swift in Sources */,
+				5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */,
+				5F8C002F2659952800A650C4 /* WeatherViewController.swift in Sources */,
 				5F8C002B2659952800A650C4 /* AppDelegate.swift in Sources */,
 				5F8C002D2659952800A650C4 /* SceneDelegate.swift in Sources */,
 				5F8C00352659952800A650C4 /* Sweater.xcdatamodeld in Sources */,
