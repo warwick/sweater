@@ -15,10 +15,11 @@
         <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="lastVisibleCityId" optional="YES" attributeType="String"/>
         <attribute name="preferredUnits" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Location" positionX="-63" positionY="-18" width="128" height="209"/>
-        <element name="User" positionX="-54" positionY="63" width="128" height="44"/>
+        <element name="User" positionX="-54" positionY="63" width="128" height="59"/>
     </elements>
 </model>
