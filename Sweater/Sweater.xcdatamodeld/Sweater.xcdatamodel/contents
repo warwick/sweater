@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="cachedDescription" optional="YES" attributeType="String"/>
+        <attribute name="cachedHigh" optional="YES" attributeType="String"/>
+        <attribute name="cachedHumidity" optional="YES" attributeType="String"/>
+        <attribute name="cachedLow" optional="YES" attributeType="String"/>
+        <attribute name="cachedTemperature" optional="YES" attributeType="String"/>
+        <attribute name="cachedWind" optional="YES" attributeType="String"/>
+        <attribute name="cityId" optional="YES" attributeType="String"/>
+        <attribute name="cityName" optional="YES" attributeType="String"/>
+        <attribute name="isCurrentLocation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isUpdatePending" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastFetchDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="preferredUnits" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="209"/>
+        <element name="User" positionX="-54" positionY="63" width="128" height="44"/>
+    </elements>
 </model>
