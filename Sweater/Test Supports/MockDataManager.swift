@@ -53,7 +53,7 @@ class MockDataManager: NSObject {
                 // Create an item for San Francisco
                 let sanFrancisco = Location(context: container.viewContext)
                 sanFrancisco.isCurrentLocation = false
-                sanFrancisco.sortIndex = 1
+                sanFrancisco.sortIndex = 2
                 sanFrancisco.uuid = NSUUID().uuidString
                 sanFrancisco.isUpdatePending = true
                 sanFrancisco.cityName = "San Francisco"
