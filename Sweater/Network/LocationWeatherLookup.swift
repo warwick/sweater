@@ -23,9 +23,11 @@ class LocationWeatherLookup: NSObject {
         self.apollo.fetch(query: GetCityByIdQuery(cityId: [viewModel.cityId()])) { result in
           switch result {
           case .success(let graphQLResult):
-            print("Success! Result: \(graphQLResult)")
+            if let weatherData = graphQLResult.data?.getCityById?.first??.weather {
+                viewModel.update(withWeatherData: weatherData)
+            }
           case .failure(let error):
-            print("Failure! Error: \(error)")
+            print("Failure to load weather data! Error: \(error)")
           }
         }
 

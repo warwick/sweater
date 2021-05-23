@@ -6,11 +6,26 @@
 //
 
 import UIKit
+import Combine
 
 class LocationViewModel: NSObject {
 
     private let _location : Location
     private let _networkClient : LocationWeatherLookup
+    
+    var weatherDescriptionListener : AnyCancellable?
+    
+    let unsetDoubleValue = -999.0
+    let unsetIntValue = -999
+
+    @Published var weatherDescription = ""
+    @Published var temperature = "--"
+    @Published var temperatureAvailable = false
+    @Published var flavourText = ""
+    @Published var todaysHigh = "High: --"
+    @Published var todaysLow = "Low: --"
+    @Published var todaysWind = "Wind: --"
+    @Published var todaysHumidity = "Humidity: --"
     
     init(withLocation location : Location) {
         
@@ -22,7 +37,7 @@ class LocationViewModel: NSObject {
         
         self._networkClient.viewModel = self
         self._networkClient.lookupWeather()
-        
+                
     }
     
     func isCurrentLocation() -> Bool {
@@ -37,77 +52,162 @@ class LocationViewModel: NSObject {
         return self._location.cityId ?? "UNKNOWN"
     }
     
-    func weatherDescription() -> String {
-        return self._location.cachedDescription ?? ""
+    func update(withWeatherData weatherData: GetCityByIdQuery.Data.GetCityById.Weather) {
+        
+        // Update the core data model
+        self._location.cachedDescription = weatherData.summary?.description
+        if let actualTemperature = weatherData.temperature?.actual {
+            self._location.cachedTemperature = actualTemperature
+        }
+        if let highTemperature = weatherData.temperature?.max {
+            self._location.cachedHigh = highTemperature
+        }
+        if let lowTemperature = weatherData.temperature?.min {
+            self._location.cachedLow = lowTemperature
+        }
+        if let windSpeed = weatherData.wind?.speed {
+            self._location.cachedWind = windSpeed
+        }
+        if let humidity = weatherData.clouds?.humidity {
+            self._location.cachedHumidity = Int32(humidity)
+        }
+
+        // I'd prefer to do this with callbacks on observed changes, but since Core Data doesn't seem to be marking properties as @Published, we'll update here.  Googling around indicates that it's buggy behaviour others are running into as well.
+        updateWeatherDescription()
+        updateTemperature()
+        updateTodaysHigh()
+        updateTodaysLow()
+        updateTodaysWind()
+        updateTodaysHumidity()
+        
     }
     
-    func temperature() -> String {
-        return self._location.cachedTemperature ?? "--"
-    }
-    
-    func temperatureAvailable() -> Bool {
-        return self._location.cachedTemperature != nil
+    func updateWeatherDescription() {
+        self.weatherDescription = self._location.cachedDescription ?? ""
     }
 
-    func flavourText() -> String {
-        // TODO: Some sort of calculation so this isn't just a static string
-        return NSLocalizedString("Your mother wants you to bring a sweater, but your friends will all make fun of you.", comment: "Flavour text to describe the weather in terms of clothing")
-    }
-    
-    func todaysHigh() -> String {
+    func updateTemperature() {
         
+        if self._location.cachedTemperature > unsetDoubleValue {
+            
+            // We have a valid temperature.  Show it rounded to the nearest whole number.
+            let number = NSNumber(value: self._location.cachedTemperature)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.minimumFractionDigits = 0
+            numberFormatter.maximumFractionDigits = 0
+            numberFormatter.numberStyle = .decimal
+            
+            if let formattedTemperature = numberFormatter.string(from: number) {
+                self.temperature = formattedTemperature
+                self.temperatureAvailable = true
+                return
+            }
+            
+        }
+        
+        self.temperature = "--"
+        self.temperatureAvailable = false
+        
+    }
+
+//    func flavourText() -> String {
+//        // TODO: Some sort of calculation so this isn't just a static string
+//        return NSLocalizedString("Your mother wants you to bring a sweater, but your friends will all make fun of you.", comment: "Flavour text to describe the weather in terms of clothing")
+//    }
+//
+    func updateTodaysHigh() {
+
         var text = "High: "
-        
-        if let high = self._location.cachedHigh {
-            text += "\(high)°"
+
+        if self._location.cachedHigh > unsetDoubleValue {
+            
+            // We have a valid temperature.  Show it rounded to the nearest whole number.
+            let number = NSNumber(value: self._location.cachedHigh)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.minimumFractionDigits = 0
+            numberFormatter.maximumFractionDigits = 0
+            numberFormatter.numberStyle = .decimal
+            
+            if let formattedTemperature = numberFormatter.string(from: number) {
+                text += "\(formattedTemperature)°"
+            } else {
+                text += "--"
+            }
+            
         } else {
             text += "--"
         }
         
-        return text
+        self.todaysHigh = text
         
     }
+    
+    func updateTodaysLow() {
 
-    func todaysLow() -> String {
-        
         var text = "Low: "
-        
-        if let low = self._location.cachedLow {
-            text += "\(low)°"
+
+        if self._location.cachedLow > unsetDoubleValue {
+            
+            // We have a valid temperature.  Show it rounded to the nearest whole number.
+            let number = NSNumber(value: self._location.cachedLow)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.minimumFractionDigits = 0
+            numberFormatter.maximumFractionDigits = 0
+            numberFormatter.numberStyle = .decimal
+            
+            if let formattedTemperature = numberFormatter.string(from: number) {
+                text += "\(formattedTemperature)°"
+            } else {
+                text += "--"
+            }
+            
         } else {
             text += "--"
         }
-        
-        return text
-        
+
+        self.todaysLow = text
+
     }
 
-    func todaysWind() -> String {
-        
+    func updateTodaysWind() {
+
         var text = "Wind: "
-        
-        if let windSpeed = self._location.cachedWind {
-            text += "\(windSpeed) kph" // TODO: Change this so it's not metric specific
+
+        if self._location.cachedWind > unsetDoubleValue {
+            
+            // We have a valid wind speed.  Show it rounded to the nearest whole number.
+            let number = NSNumber(value: self._location.cachedWind)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.minimumFractionDigits = 0
+            numberFormatter.maximumFractionDigits = 0
+            numberFormatter.numberStyle = .decimal
+            
+            if let formattedWind = numberFormatter.string(from: number) {
+                text += "\(formattedWind) kph" // TODO: Change this so it's not metric specific
+            } else {
+                text += "--"
+            }
+            
         } else {
             text += "--"
         }
-        
-        return text
-        
+
+        self.todaysWind = text
+
     }
 
-    func todaysHumidity() -> String {
-        
+    func updateTodaysHumidity() {
+
         var text = "Humidity: "
-        
-        if let humidity = self._location.cachedHumidity {
-            text += "\(humidity)%"
+
+        if self._location.cachedHumidity > unsetIntValue {
+            text += "\(self._location.cachedHumidity)%"
         } else {
             text += "--"
         }
-        
-        return text
-        
+
+        self.todaysHumidity = text
+
     }
 
 }

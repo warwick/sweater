@@ -2,11 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="cachedDescription" optional="YES" attributeType="String"/>
-        <attribute name="cachedHigh" optional="YES" attributeType="String"/>
-        <attribute name="cachedHumidity" optional="YES" attributeType="String"/>
-        <attribute name="cachedLow" optional="YES" attributeType="String"/>
-        <attribute name="cachedTemperature" optional="YES" attributeType="String"/>
-        <attribute name="cachedWind" optional="YES" attributeType="String"/>
+        <attribute name="cachedHigh" optional="YES" attributeType="Double" defaultValueString="-1000" usesScalarValueType="YES"/>
+        <attribute name="cachedHumidity" optional="YES" attributeType="Integer 32" defaultValueString="-1000" usesScalarValueType="YES"/>
+        <attribute name="cachedLow" optional="YES" attributeType="Double" defaultValueString="-1000" usesScalarValueType="YES"/>
+        <attribute name="cachedTemperature" optional="YES" attributeType="Double" defaultValueString="-1000" usesScalarValueType="YES"/>
+        <attribute name="cachedWind" optional="YES" attributeType="Double" defaultValueString="-1000" usesScalarValueType="YES"/>
         <attribute name="cityId" optional="YES" attributeType="String"/>
         <attribute name="cityName" optional="YES" attributeType="String"/>
         <attribute name="isCurrentLocation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -21,7 +21,7 @@
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="224"/>
         <element name="User" positionX="-395.1096801757812" positionY="-19.64779663085938" width="128" height="88"/>
     </elements>
 </model>
