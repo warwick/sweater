@@ -51,14 +51,7 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         humidity.text = viewModel.todaysHumidity
         flavourText.text = viewModel.flavourText
         
-        temperatureListener?.cancel()
-        temperatureAvailableListener?.cancel()
-        weatherDescriptionListener?.cancel()
-        highListener?.cancel()
-        lowListener?.cancel()
-        windListener?.cancel()
-        humidityListener?.cancel()
-        flavourTextListener?.cancel()
+        self.cancelListeners()
         
         temperatureListener = viewModel.$temperature.sink(receiveValue: { value in
             self.temperature.text = value
@@ -92,7 +85,21 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
             self.flavourText.text = value
         })
 
-        
+    }
+    
+    func cancelListeners() {
+        temperatureListener?.cancel()
+        temperatureAvailableListener?.cancel()
+        weatherDescriptionListener?.cancel()
+        highListener?.cancel()
+        lowListener?.cancel()
+        windListener?.cancel()
+        humidityListener?.cancel()
+        flavourTextListener?.cancel()
+    }
+    
+    deinit {
+        self.cancelListeners()
     }
     
 }
