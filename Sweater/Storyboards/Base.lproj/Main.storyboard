@@ -14,6 +14,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sweater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -22,7 +23,7 @@
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-JU-T5z">
                                 <rect key="frame" x="0.0" y="44" width="414" height="782.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jpF-dh-qrN">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jpF-dh-qrN">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -175,120 +176,8 @@
                                             <outlet property="wind" destination="ah4-xB-2M3" id="vbk-kx-HqP"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settings" id="8g6-gU-Kin">
-                                        <rect key="frame" x="414" y="-17.5" width="414" height="817"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="ofz-HP-j0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUn-JU-fo2">
-                                                    <rect key="frame" x="12" y="744.5" width="390" height="72"/>
-                                                    <color key="backgroundColor" name="Settings Card Background"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="72" id="2sa-y1-GA9"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadow.radius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                                            <integer key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
-                                                            <size key="value" width="0.0" height="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ss-Wd-UbU">
-                                                    <rect key="frame" x="12" y="0.0" width="390" height="733"/>
-                                                    <color key="backgroundColor" name="Settings Card Background"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadow.radius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                                            <integer key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
-                                                            <size key="value" width="0.0" height="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Add a new city:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fls-1V-5Ld">
-                                                    <rect key="frame" x="32" y="20" width="350" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <searchBar contentMode="redraw" ambiguous="YES" searchBarStyle="minimal" placeholder="City" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-Ob-x2s">
-                                                    <rect key="frame" x="32" y="45" width="350" height="51"/>
-                                                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                                                </searchBar>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KS7-ZE-JuJ">
-                                                    <rect key="frame" x="32" y="89.5" width="350" height="643.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ePe-oA-NwS">
-                                                            <rect key="frame" x="0.0" y="24.5" width="350" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePe-oA-NwS" id="7rw-Fm-H8Z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                            </tableViewCellContentView>
-                                                        </tableViewCell>
-                                                    </prototypes>
-                                                </tableView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-eC-A0B">
-                                                    <rect key="frame" x="227" y="766" width="155" height="32"/>
-                                                    <segments>
-                                                        <segment title="Celcius"/>
-                                                        <segment title="Farenheit"/>
-                                                    </segments>
-                                                    <color key="selectedSegmentTintColor" name="Accent Color"/>
-                                                </segmentedControl>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Preferred Units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN7-bk-39n">
-                                                    <rect key="frame" x="32" y="769" width="129" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="top" secondItem="Ygt-Ob-x2s" secondAttribute="bottom" constant="-6.5" id="4tN-g5-xtC"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Ss-Wd-UbU" secondAttribute="trailing" constant="12" id="C0g-rH-ceL"/>
-                                                <constraint firstItem="Ygt-Ob-x2s" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="32" id="Edy-xR-7rl"/>
-                                                <constraint firstAttribute="bottom" secondItem="6Ss-Wd-UbU" secondAttribute="bottom" constant="84" id="IKP-kA-1U8"/>
-                                                <constraint firstAttribute="trailing" secondItem="8Sh-eC-A0B" secondAttribute="trailing" constant="32" id="ISI-13-Rml"/>
-                                                <constraint firstAttribute="bottom" secondItem="8Sh-eC-A0B" secondAttribute="bottom" constant="20" id="J7u-JX-AMp"/>
-                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="bottom" secondItem="Ygt-Ob-x2s" secondAttribute="top" id="L7r-dR-cdf"/>
-                                                <constraint firstItem="sUn-JU-fo2" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="12" id="P9A-4N-4G9"/>
-                                                <constraint firstItem="FN7-bk-39n" firstAttribute="centerY" secondItem="8Sh-eC-A0B" secondAttribute="centerY" id="Pyq-r3-eNK"/>
-                                                <constraint firstItem="6Ss-Wd-UbU" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="12" id="R0b-rc-MZR"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" constant="32" id="WIt-ON-aKd"/>
-                                                <constraint firstItem="6Ss-Wd-UbU" firstAttribute="top" secondItem="ofz-HP-j0g" secondAttribute="top" id="Xv8-O0-T2x"/>
-                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" id="c05-mB-Lem"/>
-                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="trailing" secondItem="Ygt-Ob-x2s" secondAttribute="trailing" id="dSt-03-LH6"/>
-                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="leading" secondItem="Ygt-Ob-x2s" secondAttribute="leading" id="duL-m2-zXT"/>
-                                                <constraint firstItem="8Sh-eC-A0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FN7-bk-39n" secondAttribute="trailing" constant="8" symbolic="YES" id="g1B-0t-FB6"/>
-                                                <constraint firstItem="FN7-bk-39n" firstAttribute="leading" secondItem="ofz-HP-j0g" secondAttribute="leading" constant="32" id="oFF-CJ-Uf9"/>
-                                                <constraint firstItem="KS7-ZE-JuJ" firstAttribute="bottom" secondItem="6Ss-Wd-UbU" secondAttribute="bottom" id="p9p-O5-w2I"/>
-                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="leading" secondItem="Ygt-Ob-x2s" secondAttribute="leading" id="w1K-AA-Mww"/>
-                                                <constraint firstAttribute="bottom" secondItem="sUn-JU-fo2" secondAttribute="bottom" constant="0.5" id="w1O-4S-uNa"/>
-                                                <constraint firstItem="Fls-1V-5Ld" firstAttribute="top" secondItem="6Ss-Wd-UbU" secondAttribute="top" constant="20" id="yPa-qC-U91"/>
-                                                <constraint firstAttribute="trailing" secondItem="sUn-JU-fo2" secondAttribute="trailing" constant="12" id="z8Y-QZ-0Sq"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="414" height="817"/>
-                                    </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pd2-Qg-kfx"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Lii-xN-tun"/>
                                 </connections>
                             </collectionView>
@@ -314,16 +203,12 @@
                         <outlet property="pageControl" destination="LCa-Wv-ZpW" id="8hp-BI-jKd"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="Accent Color">
-            <color red="0.22699999809265137" green="0.52899998426437378" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Location Card Background">
             <color red="0.22699999809265137" green="0.52899998426437378" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -332,9 +217,6 @@
         </namedColor>
         <namedColor name="Location Card Secondary Text">
             <color red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Settings Card Background">
-            <color red="0.81699997186660767" green="0.88999998569488525" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class LocationViewModel: NSObject {
+class LocationViewModel : Hashable {
 
     private let _location : Location
     private let _networkClient : LocationWeatherLookup
@@ -32,9 +32,7 @@ class LocationViewModel: NSObject {
         self._location = location
         
         self._networkClient = LocationWeatherLookup()
-        
-        super.init()
-        
+                
         self._networkClient.viewModel = self
         self._networkClient.lookupWeather()
                 
@@ -48,6 +46,14 @@ class LocationViewModel: NSObject {
         
     }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self._location.uuid)
+    }
+    
+    static func == (lhs: LocationViewModel, rhs: LocationViewModel) -> Bool {
+        lhs._location.uuid == rhs._location.uuid
+    }
+
     func isCurrentLocation() -> Bool {
         return self._location.isCurrentLocation
     }
