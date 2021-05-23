@@ -17,6 +17,7 @@
 		5F8C00452659952C00A650C4 /* SweaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C00442659952C00A650C4 /* SweaterTests.swift */; };
 		5F8C00502659952C00A650C4 /* SweaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C004F2659952C00A650C4 /* SweaterUITests.swift */; };
 		5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */; };
+		5FDDF3872659D65600D71BB2 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDF3862659D65600D71BB2 /* MockDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		5F8C00512659952C00A650C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8C005D2659954A00A650C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		5FDDF3862659D65600D71BB2 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +109,13 @@
 				5F8C005D2659954A00A650C4 /* README.md */,
 				5F8C002A2659952800A650C4 /* AppDelegate.swift */,
 				5F8C002C2659952800A650C4 /* SceneDelegate.swift */,
-				5F8C002E2659952800A650C4 /* WeatherViewController.swift */,
-				5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */,
-				5F8C00302659952800A650C4 /* Main.storyboard */,
+				5FDDF388265A282400D71BB2 /* Test Supports */,
+				5F8C00632659D5A600A650C4 /* Network */,
+				5F8C00622659D40B00A650C4 /* Models */,
+				5F8C00612659D3F000A650C4 /* Storyboards */,
+				5F8C00602659D3C200A650C4 /* View Controllers */,
 				5F8C00362659952C00A650C4 /* Assets.xcassets */,
-				5F8C00382659952C00A650C4 /* LaunchScreen.storyboard */,
 				5F8C003B2659952C00A650C4 /* Info.plist */,
-				5F8C00332659952800A650C4 /* Sweater.xcdatamodeld */,
 			);
 			path = Sweater;
 			sourceTree = "<group>";
@@ -134,6 +136,47 @@
 				5F8C00512659952C00A650C4 /* Info.plist */,
 			);
 			path = SweaterUITests;
+			sourceTree = "<group>";
+		};
+		5F8C00602659D3C200A650C4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C002E2659952800A650C4 /* WeatherViewController.swift */,
+				5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5F8C00612659D3F000A650C4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C00302659952800A650C4 /* Main.storyboard */,
+				5F8C00382659952C00A650C4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5F8C00622659D40B00A650C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C00332659952800A650C4 /* Sweater.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F8C00632659D5A600A650C4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5FDDF388265A282400D71BB2 /* Test Supports */ = {
+			isa = PBXGroup;
+			children = (
+				5FDDF3862659D65600D71BB2 /* MockDataManager.swift */,
+			);
+			path = "Test Supports";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDDF3872659D65600D71BB2 /* MockDataManager.swift in Sources */,
 				5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */,
 				5F8C002F2659952800A650C4 /* WeatherViewController.swift in Sources */,
 				5F8C002B2659952800A650C4 /* AppDelegate.swift in Sources */,

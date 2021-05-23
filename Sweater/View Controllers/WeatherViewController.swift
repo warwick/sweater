@@ -26,6 +26,8 @@ class WeatherViewController: UIViewController, UICollectionViewDataSource, UICol
         if let addImage = UIImage(systemName: "gearshape.fill") {
             self.pageControl.setIndicatorImage(addImage, forPage: 2) // Temp to check for looks as we design ui
         }
+        
+        MockDataManager.shared.loadMockData()
 
     }
     
