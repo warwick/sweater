@@ -162,7 +162,17 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="817"/>
                                         <connections>
-                                            <outlet property="cardBackground" destination="hUw-xM-LPP" id="exh-xd-2AI"/>
+                                            <outlet property="cityName" destination="ms8-8m-cPI" id="Fn4-1M-Fhi"/>
+                                            <outlet property="currentLocationLabel" destination="jFN-cd-GO7" id="2Ki-Je-7cc"/>
+                                            <outlet property="degreesLabel" destination="l26-6U-Fk1" id="o0y-jo-1eF"/>
+                                            <outlet property="deleteButton" destination="p7y-Lj-Vj4" id="wk9-Z9-R6N"/>
+                                            <outlet property="flavourText" destination="JNn-6P-C5X" id="iDr-tz-fKU"/>
+                                            <outlet property="high" destination="IKs-H8-MBu" id="xhZ-uJ-bdr"/>
+                                            <outlet property="humidity" destination="jHe-rJ-c8w" id="DtC-kX-Vqv"/>
+                                            <outlet property="low" destination="Vjw-83-RGA" id="pu3-jl-I7a"/>
+                                            <outlet property="temperature" destination="iLy-yZ-Apl" id="tRf-ol-WNL"/>
+                                            <outlet property="weatherDescription" destination="frY-Qv-cGx" id="G0J-Xk-yaE"/>
+                                            <outlet property="wind" destination="ah4-xB-2M3" id="vbk-kx-HqP"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settings" id="8g6-gU-Kin">

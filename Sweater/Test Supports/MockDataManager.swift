@@ -23,7 +23,6 @@ class MockDataManager: NSObject {
                 // Find any existing users and nuke them from orbit
                 let userRequest = NSFetchRequest<User>(entityName: "User")
                 let result = try container.viewContext.fetch(userRequest)
-                print("User objects: \(result)")
                 for user in result {
                     container.viewContext.delete(user)
                 }
@@ -39,6 +38,7 @@ class MockDataManager: NSObject {
                 currentLocation.sortIndex = 0
                 currentLocation.uuid = NSUUID().uuidString
                 currentLocation.isUpdatePending = true
+                user.addToLocations(currentLocation)
 
                 // Create an item for Vancouver
                 let vancouver = Location(context: container.viewContext)
@@ -48,6 +48,7 @@ class MockDataManager: NSObject {
                 vancouver.isUpdatePending = true
                 vancouver.cityName = "Vancouver"
                 vancouver.cityId = "6173331"
+                user.addToLocations(vancouver)
 
                 // Create an item for San Francisco
                 let sanFrancisco = Location(context: container.viewContext)
@@ -57,7 +58,8 @@ class MockDataManager: NSObject {
                 sanFrancisco.isUpdatePending = true
                 sanFrancisco.cityName = "San Francisco"
                 sanFrancisco.cityId = "5391959"
-                
+                user.addToLocations(sanFrancisco)
+
                 (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 
             } catch {
