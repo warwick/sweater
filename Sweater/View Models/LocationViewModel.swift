@@ -38,6 +38,14 @@ class LocationViewModel: NSObject {
         self._networkClient.viewModel = self
         self._networkClient.lookupWeather()
                 
+        // Update the view model with values that are saved in core data
+        updateWeatherDescription()
+        updateTemperature()
+        updateTodaysHigh()
+        updateTodaysLow()
+        updateTodaysWind()
+        updateTodaysHumidity()
+        
     }
     
     func isCurrentLocation() -> Bool {
@@ -70,6 +78,12 @@ class LocationViewModel: NSObject {
         }
         if let humidity = weatherData.clouds?.humidity {
             self._location.cachedHumidity = Int32(humidity)
+        }
+        
+        do {
+            try self._location.managedObjectContext?.save()
+        } catch {
+            assert(false, "We weren't able to save the managed object context.")
         }
 
         // I'd prefer to do this with callbacks on observed changes, but since Core Data doesn't seem to be marking properties as @Published, we'll update here.  Googling around indicates that it's buggy behaviour others are running into as well.
