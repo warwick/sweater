@@ -18,9 +18,10 @@
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="lastVisibleCityId" optional="YES" attributeType="String"/>
         <attribute name="preferredUnits" optional="YES" attributeType="String"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="224"/>
-        <element name="User" positionX="-54" positionY="63" width="128" height="59"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="User" positionX="-395.1096801757812" positionY="-19.64779663085938" width="128" height="88"/>
     </elements>
 </model>
