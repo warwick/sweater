@@ -10,9 +10,19 @@ import UIKit
 class LocationViewModel: NSObject {
 
     private let _location : Location
+    private let _networkClient : LocationWeatherLookup
     
     init(withLocation location : Location) {
+        
         self._location = location
+        
+        self._networkClient = LocationWeatherLookup()
+        
+        super.init()
+        
+        self._networkClient.viewModel = self
+        self._networkClient.lookupWeather()
+        
     }
     
     func isCurrentLocation() -> Bool {

@@ -1,0 +1,34 @@
+query GetCityById($cityId:[String!]) {
+  getCityById(id: $cityId,
+    config: {
+        units: metric,
+        lang: en
+    }) {
+    id
+    name
+    weather {
+      summary {
+        description
+      }
+      temperature {
+        actual
+        feelsLike
+        min
+        max
+      }
+      wind {
+        speed
+      }
+      clouds {
+        humidity
+      }
+      timestamp
+    }
+  }
+}
+
+query GetCityByName($cityName:String!, $country:String!) {
+  getCityByName(name: $cityName, country:$country) {
+    id
+  }
+}
