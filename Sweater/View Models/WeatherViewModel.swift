@@ -29,6 +29,18 @@ class WeatherViewModel {
             let result = try self._persistentContainer.viewContext.fetch(userRequest)
             self._user = result.first ?? User(context: persistentContainer.viewContext)
             
+            if self._user.locations?.count == 0 {
+                
+                // Create a new 'current location' card if we don't have any existing locations
+                // This ensures that the user is never going to see a 'no content' state
+                let currentLocation = Location(context: persistentContainer.viewContext)
+                currentLocation.isCurrentLocation = true
+                currentLocation.sortIndex = 0
+                currentLocation.uuid = NSUUID().uuidString
+                self._user.addToLocations(currentLocation)
+                
+            }
+            
             // Fetch the locations from the model, creating a 'current location' model if no locations exist
             // Take the opportunity to sort them while we're at it, based on their sortIndex
             if let locations = self._user.locations as? Set<Location> {
