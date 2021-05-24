@@ -26,6 +26,7 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
      */
     var viewModel: LocationViewModel?
 
+    var cityNameListener : AnyCancellable?
     var temperatureListener : AnyCancellable?
     var temperatureAvailableListener : AnyCancellable?
     var weatherDescriptionListener : AnyCancellable?
@@ -50,6 +51,10 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         
         self.cancelListeners()
         
+        cityNameListener = viewModel.$cityName.sink(receiveValue: { value in
+            self.cityName.text = value
+        })
+
         temperatureListener = viewModel.$temperature.sink(receiveValue: { value in
             self.temperature.text = value
         })
@@ -72,6 +77,7 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
      Cancel listeners so they're not hanging around past their usefulness.  We do this in a couple spots, so it's broken out here for DRY.
      */
     func cancelListeners() {
+        cityNameListener?.cancel()
         temperatureListener?.cancel()
         temperatureAvailableListener?.cancel()
         weatherDescriptionListener?.cancel()

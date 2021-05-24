@@ -33,7 +33,6 @@ class CityCreator: NSObject {
                 
                 // Check to see that we've gotten an id back from the graphQL call
                 if let identifier = graphQLResult.data?.getCityByName?.id {
-                    print("The city identifier is: \(identifier)")
                     viewModel.addNewLocation(withCityName: city, identifier: identifier)
                 }
                 

@@ -14,6 +14,7 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
     private(set) lazy var apollo = ApolloClient(url: URL(string: "https://graphql-weather-api.herokuapp.com/")!)
     let locationManager = CLLocationManager()
     let geoCoder = CLGeocoder()
+    var alreadyFiredGeocode = false // The geocoder doesn't like rapid firing, so I don't want to slam it.  Hacky.
     
     var viewModel : LocationViewModel?
     
@@ -26,7 +27,7 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        if viewModel.isCurrentLocation() {
+        if viewModel.isCurrentLocation() && viewModel.cityId() == "UNKNOWN" {
             
             // We have a slightly different flow for lookup if it's a 'current location' card, so head into a specialized method
             lookupCurrentLocationWeather()
@@ -73,10 +74,16 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
         
         if let location = locations.first {
             
+            if alreadyFiredGeocode {
+                return
+            }
+            alreadyFiredGeocode = true
+            
             geoCoder.reverseGeocodeLocation(location) { placemarks, error in
                 
                 if error != nil {
                     print("Error reverse geocoding location: \(error)") // TODO: Figure out a way to reflect this in the UI before we ship this.
+                    
                     return
                 }
                 

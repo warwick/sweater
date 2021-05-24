@@ -193,6 +193,14 @@ class WeatherViewModel {
             }
         }
         
+        // It's possible that the city id of the current location card has changed
+        // If we couldn't find a card with a matching id, return the current location card instead
+        for location in self.locationViewModels {
+            if location.isCurrentLocation() {
+                return location
+            }
+        }
+        
         return nil
         
     }
