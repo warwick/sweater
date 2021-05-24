@@ -29,7 +29,6 @@ class MockDataManager: NSObject {
                 
                 // Create a fresh user
                 let user = User(context: container.viewContext)
-                user.preferredUnits = "metric"
                 
                 // Create a 'current location' item
                 // We'll create one of these by default when the app first loads.  This won't be deletable.
@@ -37,7 +36,6 @@ class MockDataManager: NSObject {
                 currentLocation.isCurrentLocation = true
                 currentLocation.sortIndex = 0
                 currentLocation.uuid = NSUUID().uuidString
-                currentLocation.isUpdatePending = true
                 user.addToLocations(currentLocation)
 
                 // Create an item for Vancouver
@@ -45,7 +43,6 @@ class MockDataManager: NSObject {
                 vancouver.isCurrentLocation = false
                 vancouver.sortIndex = 1
                 vancouver.uuid = NSUUID().uuidString
-                vancouver.isUpdatePending = true
                 vancouver.cityName = "Vancouver"
                 vancouver.cityId = "6173331"
                 user.addToLocations(vancouver)
@@ -55,7 +52,6 @@ class MockDataManager: NSObject {
                 sanFrancisco.isCurrentLocation = false
                 sanFrancisco.sortIndex = 2
                 sanFrancisco.uuid = NSUUID().uuidString
-                sanFrancisco.isUpdatePending = true
                 sanFrancisco.cityName = "San Francisco"
                 sanFrancisco.cityId = "5391959"
                 user.addToLocations(sanFrancisco)

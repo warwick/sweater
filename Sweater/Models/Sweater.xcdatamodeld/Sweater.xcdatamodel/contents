@@ -10,18 +10,15 @@
         <attribute name="cityId" optional="YES" attributeType="String"/>
         <attribute name="cityName" optional="YES" attributeType="String"/>
         <attribute name="isCurrentLocation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isUpdatePending" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="lastFetchDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
-        <attribute name="lastVisibleCityId" optional="YES" attributeType="String"/>
-        <attribute name="preferredUnits" optional="YES" attributeType="String"/>
+        <attribute name="lastVisibleCityId" optional="YES" transient="YES" attributeType="String" defaultValueString="0"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="224"/>
-        <element name="User" positionX="-395.1096801757812" positionY="-19.64779663085938" width="128" height="88"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="194"/>
+        <element name="User" positionX="-395.1096801757812" positionY="-19.64779663085938" width="128" height="59"/>
     </elements>
 </model>

@@ -48,7 +48,6 @@ class WeatherViewModel {
                 currentLocation.isCurrentLocation = true
                 currentLocation.sortIndex = 0
                 currentLocation.uuid = NSUUID().uuidString
-                currentLocation.isUpdatePending = true
 
                 let viewModel = LocationViewModel(withLocation: currentLocation, weatherViewModel: self)
                 self.locationViewModels.append(viewModel)
@@ -111,7 +110,6 @@ class WeatherViewModel {
             newCity.sortIndex = 0
         }
         newCity.uuid = NSUUID().uuidString
-        newCity.isUpdatePending = true
         newCity.cityName = city
         newCity.cityId = identifier
         self._user.addToLocations(newCity)
