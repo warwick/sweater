@@ -108,6 +108,15 @@ class WeatherViewModel {
     
     func addNewLocation(withCityName city : String, identifier: String) {
         
+        // Check to see if a location with the same identifier already exists
+        for location in self.locationViewModels {
+            if location.cityId() == identifier {
+                setSelectedCity(withId: identifier)
+                return
+            }
+        }
+
+        // We don't have any conflicts, we're good to make the new location
         let newCity = Location(context: _persistentContainer.viewContext)
         newCity.isCurrentLocation = false
         if let lastExistingViewModel = self.locationViewModels.last {
