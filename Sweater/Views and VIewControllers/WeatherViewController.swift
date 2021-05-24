@@ -46,6 +46,10 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
             applySnapshot(withLocationViewModels: locationViewModels)
         }
 
+        if let viewModel = viewModel {
+            configurePageControl(withIndex: viewModel.selectedCardIndex)
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -112,6 +116,11 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         }
         
         self.pageControl.currentPage = index
+        
+        // Figure out how far the view should be scrolled, given the page index
+        let scrollAmount = Int(self.collectionView.frame.size.width) * index
+        let offset = CGPoint(x: scrollAmount, y: 0)
+        self.collectionView.setContentOffset(offset, animated: true)
                 
     }
     
@@ -131,6 +140,14 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
             viewModel?.setSelectedCity(withId: locationViewModel.cityId())
         }
 
+    }
+    
+    @IBAction func changePage(_ sender : UIPageControl) {
+        
+        if let locationViewModel = dataSource.itemIdentifier(for: IndexPath(item: sender.currentPage, section: 0)) {
+            viewModel?.setSelectedCity(withId: locationViewModel.cityId())
+        }
+        
     }
     
 }
