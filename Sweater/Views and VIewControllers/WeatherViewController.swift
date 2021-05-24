@@ -181,9 +181,7 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         if let addressComponents = place.addressComponents {
             for component in addressComponents {
                 if component.types.contains("locality") {
-                    if let city = component.shortName {
-                        cityName = city
-                    }
+                    cityName = component.name
                 }
                 if component.types.contains("country") {
                     if let country = component.shortName {
