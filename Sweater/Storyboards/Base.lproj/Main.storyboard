@@ -112,14 +112,17 @@
                                                     <color key="textColor" name="Location Card Secondary Text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your mother wants you to bring a sweater, but your friends will all make fun of you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNn-6P-C5X">
-                                                    <rect key="frame" x="32" y="464" width="351.5" height="98.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your mother wants you to bring a sweater, but your friends will all make fun of you." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNn-6P-C5X">
+                                                    <rect key="frame" x="32" y="464" width="350" height="98.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="PzK-KL-zKF"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="24"/>
                                                     <color key="textColor" name="Location Card Primary Text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for More Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-8B-x2A">
-                                                    <rect key="frame" x="31" y="736.5" width="352" height="33"/>
+                                                    <rect key="frame" x="136" y="772" width="142.5" height="25"/>
                                                     <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" name="Location Card Secondary Text"/>
                                                     <nil key="highlightedColor"/>
@@ -132,12 +135,12 @@
                                                 <constraint firstItem="iLy-yZ-Apl" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="FRw-DP-J8h"/>
                                                 <constraint firstItem="iLy-yZ-Apl" firstAttribute="top" secondItem="frY-Qv-cGx" secondAttribute="bottom" constant="27" id="Gxi-F1-n1T"/>
                                                 <constraint firstItem="7vo-8B-x2A" firstAttribute="bottom" secondItem="hUw-xM-LPP" secondAttribute="bottom" constant="-20" id="IB0-QJ-Uhd"/>
-                                                <constraint firstItem="JNn-6P-C5X" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="IdX-ua-N4i"/>
                                                 <constraint firstItem="p7y-Lj-Vj4" firstAttribute="top" secondItem="hUw-xM-LPP" secondAttribute="top" id="KyU-Lk-754"/>
                                                 <constraint firstItem="ms8-8m-cPI" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="MBv-mp-gVb"/>
                                                 <constraint firstItem="p7y-Lj-Vj4" firstAttribute="leading" secondItem="hUw-xM-LPP" secondAttribute="leading" id="NZU-Qw-HhD"/>
                                                 <constraint firstItem="JNn-6P-C5X" firstAttribute="top" secondItem="iLy-yZ-Apl" secondAttribute="bottom" constant="8" symbolic="YES" id="OpI-eK-fNs"/>
                                                 <constraint firstItem="iLy-yZ-Apl" firstAttribute="centerY" secondItem="tBv-Cq-4DR" secondAttribute="centerY" constant="-40" id="Q0Z-Db-hFY"/>
+                                                <constraint firstItem="JNn-6P-C5X" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="Ubp-sr-OPw"/>
                                                 <constraint firstItem="l26-6U-Fk1" firstAttribute="leading" secondItem="iLy-yZ-Apl" secondAttribute="trailing" id="Wyc-LD-4lm"/>
                                                 <constraint firstAttribute="trailing" secondItem="hUw-xM-LPP" secondAttribute="trailing" constant="12" id="b3r-bM-mLF"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l26-6U-Fk1" secondAttribute="trailing" constant="20" symbolic="YES" id="coZ-Pa-LGB"/>
@@ -145,7 +148,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="hUw-xM-LPP" secondAttribute="bottom" id="fdK-ab-aw7"/>
                                                 <constraint firstItem="frY-Qv-cGx" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="lQJ-aM-bt0"/>
                                                 <constraint firstItem="7vo-8B-x2A" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="nLU-LH-sOm"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JNn-6P-C5X" secondAttribute="trailing" constant="20" symbolic="YES" id="qsR-yM-dje"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p7y-Lj-Vj4" secondAttribute="trailing" constant="20" symbolic="YES" id="t3W-E6-BLi"/>
                                                 <constraint firstItem="jFN-cd-GO7" firstAttribute="bottom" secondItem="ms8-8m-cPI" secondAttribute="top" id="ti0-Yr-TEX"/>
                                                 <constraint firstItem="frY-Qv-cGx" firstAttribute="top" secondItem="ms8-8m-cPI" secondAttribute="bottom" constant="-7" id="xQj-4X-PrB"/>

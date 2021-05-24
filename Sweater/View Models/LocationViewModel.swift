@@ -46,6 +46,9 @@ class LocationViewModel : Hashable {
         updateTodaysWind()
         updateTodaysHumidity()
         
+        // We only want to do this on first load, it doesn't need to update everytime the temperature changes
+        pickFlavourText()
+        
     }
     
     func hash(into hasher: inout Hasher) {
@@ -136,11 +139,24 @@ class LocationViewModel : Hashable {
         
     }
 
-//    func flavourText() -> String {
-//        // TODO: Some sort of calculation so this isn't just a static string
-//        return NSLocalizedString("Your mother wants you to bring a sweater, but your friends will all make fun of you.", comment: "Flavour text to describe the weather in terms of clothing")
-//    }
-//
+    func pickFlavourText() {
+        
+        // My intent here was to do something based on the 'feels like' temperature, but I realized I don't have enough data to
+        // make any sort of accurate prediction.  If data isn't available, we'll have to rely on snark instead.
+        // Here are a few 'funny' pieces of flavour text, one of which is picked at random for each location.
+        
+        let flavourText = [
+            NSLocalizedString("Your mother wants you to bring a sweater, but your friends will all make fun of you.", comment: "Flavour text one"),
+            NSLocalizedString("You should bring a sweater, that'll guarantee a sunny day.", comment: "Flavour text two"),
+            NSLocalizedString("Wear that old college hoodie today.  It cost enough, who cares what the temperature is.", comment: "Flavour text three"),
+            NSLocalizedString("Leave the sweater at home.  I'd like it to rain today.", comment: "Flavour text four"),
+            NSLocalizedString("Dammit Jim, I'm a doctor, not a fashion oracle.  Put the damned sweater in your bag.", comment: "Flavour text five")
+        ]
+        
+        self.flavourText = flavourText.randomElement() ?? ""
+        
+    }
+
     func updateTodaysHigh() {
 
         var text = "High: "
