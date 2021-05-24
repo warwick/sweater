@@ -17,7 +17,15 @@ Here's what this project is going to do:
 - [The GraphQL Weather API](https://graphql-weather-api.herokuapp.com)
 
 ## Third Party Libraries
-(None so far)
+- Apollo for GraphQL
+- Google Places for Autocomplte
+
+## Setup Instructions
+- Clone this repo
+- Install pods
+- Set the project to use your own signing certificates
+- Set the project to use your own Google Places API key.  The one in AppDelegate was expired prior to pushing this onto github.
+- Build and run
 
 ## Questions or concerns
 Email [bob@wholepunk.com](mailto:bob@wholepunk.com)
