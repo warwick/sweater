@@ -55,6 +55,10 @@ class LocationViewModel : Hashable {
     static func == (lhs: LocationViewModel, rhs: LocationViewModel) -> Bool {
         lhs._location.uuid == rhs._location.uuid
     }
+    
+    func sortIndex() -> Int16 {
+        return self._location.sortIndex
+    }
 
     func isCurrentLocation() -> Bool {
         return self._location.isCurrentLocation

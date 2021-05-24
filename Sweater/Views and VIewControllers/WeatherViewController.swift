@@ -7,8 +7,9 @@
 
 import UIKit
 import Combine
+import GooglePlaces
 
-class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GMSAutocompleteViewControllerDelegate {
 
     enum Section {
         case main
@@ -27,6 +28,8 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
     var selectedCardListener : AnyCancellable?
     var locationsListener : AnyCancellable?
     private lazy var dataSource = makeDataSource()
+    
+    let cityCreator = CityCreator()
 
     override func viewDidLoad() {
         
@@ -149,5 +152,65 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         }
         
     }
+    
+    @IBAction func addLocation(_ sender : UIButton) {
+        
+        let autocompleteVC = GMSAutocompleteViewController()
+        autocompleteVC.delegate = self
+        autocompleteVC.placeFields = [.addressComponents]
+        
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteVC.autocompleteFilter = filter
+        
+        self.present(autocompleteVC, animated: true, completion: nil)
+        
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
+        viewController.dismiss(animated: true, completion: nil)
+        
+        var countryCode = ""
+        var cityName = ""
+        
+        if let addressComponents = place.addressComponents {
+            for component in addressComponents {
+                if component.types.contains("locality") {
+                    if let city = component.shortName {
+                        cityName = city
+                    }
+                }
+                if component.types.contains("country") {
+                    if let country = component.shortName {
+                        countryCode = country
+                    }
+                }
+            }
+        }
+        
+        cityCreator.viewModel = self.viewModel
+        cityCreator.createCity(forCityNamed: cityName, withCountryCode: countryCode, withParentViewController: self)
+        
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        
+        let alert = UIAlertController(title: NSLocalizedString("Failed to autocomplete", comment: "Failed to autocomplete"),
+                            message: NSLocalizedString("We were unable to autocomplete your search", comment: "Failed autocomplte"),
+                          preferredStyle: .alert)
+        alert.addAction(
+            UIAlertAction(title: NSLocalizedString("Ok", comment: "Informational Modal Dismiss"),
+                          style: .default,
+                          handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+
     
 }

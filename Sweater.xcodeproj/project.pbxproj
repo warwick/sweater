@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B90F801E54097FF49ECFB5B /* Pods_SweaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269A04E2C4D51FE0F20942A /* Pods_SweaterTests.framework */; };
 		5F8C002B2659952800A650C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002A2659952800A650C4 /* AppDelegate.swift */; };
 		5F8C002D2659952800A650C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002C2659952800A650C4 /* SceneDelegate.swift */; };
 		5F8C002F2659952800A650C4 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C002E2659952800A650C4 /* WeatherViewController.swift */; };
@@ -17,6 +18,7 @@
 		5F8C00452659952C00A650C4 /* SweaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C00442659952C00A650C4 /* SweaterTests.swift */; };
 		5F8C00502659952C00A650C4 /* SweaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C004F2659952C00A650C4 /* SweaterUITests.swift */; };
 		5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */; };
+		5FC3F638265B71460022EEC4 /* CityCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3F637265B71460022EEC4 /* CityCreator.swift */; };
 		5FDDF3872659D65600D71BB2 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDF3862659D65600D71BB2 /* MockDataManager.swift */; };
 		5FDDF38B265A2D4D00D71BB2 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDF38A265A2D4D00D71BB2 /* WeatherViewModel.swift */; };
 		5FDDF38D265A371B00D71BB2 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDF38C265A371B00D71BB2 /* LocationViewModel.swift */; };
@@ -27,6 +29,8 @@
 		5FE4EB5B265AC5A300FA9E30 /* ApolloCodegenLib in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE4EB5A265AC5A300FA9E30 /* ApolloCodegenLib */; };
 		5FE4EB5F265AC93100FA9E30 /* LookupCity.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5FE4EB5E265AC93100FA9E30 /* LookupCity.graphql */; };
 		5FE4EB61265ACC3600FA9E30 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4EB60265ACC3600FA9E30 /* API.swift */; };
+		9E6763B636085FD369A94B0F /* Pods_Sweater_SweaterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA0A3D02176CA2868414290 /* Pods_Sweater_SweaterUITests.framework */; };
+		BE22C499B133A7D3CD62F319 /* Pods_Sweater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E70B38A4FC6451E65747022 /* Pods_Sweater.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0367C9DCDE398E9FCC7A9BFB /* Pods-Sweater-SweaterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweater-SweaterUITests.release.xcconfig"; path = "Target Support Files/Pods-Sweater-SweaterUITests/Pods-Sweater-SweaterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0BA0A3D02176CA2868414290 /* Pods_Sweater_SweaterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweater_SweaterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2269A04E2C4D51FE0F20942A /* Pods_SweaterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SweaterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E70B38A4FC6451E65747022 /* Pods_Sweater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE75E991D3C7027834677AA /* Pods-Sweater-SweaterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweater-SweaterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sweater-SweaterUITests/Pods-Sweater-SweaterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8C00272659952800A650C4 /* Sweater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8C002A2659952800A650C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8C002C2659952800A650C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +73,7 @@
 		5F8C00512659952C00A650C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8C005D2659954A00A650C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F8C005E2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		5FC3F637265B71460022EEC4 /* CityCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCreator.swift; sourceTree = "<group>"; };
 		5FDDF3862659D65600D71BB2 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 		5FDDF38A265A2D4D00D71BB2 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		5FDDF38C265A371B00D71BB2 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +81,10 @@
 		5FE4EB5D265AC7CF00FA9E30 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = schema.json; path = Sweater/schema.json; sourceTree = SOURCE_ROOT; };
 		5FE4EB5E265AC93100FA9E30 /* LookupCity.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LookupCity.graphql; sourceTree = "<group>"; };
 		5FE4EB60265ACC3600FA9E30 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sweater/API.swift; sourceTree = SOURCE_ROOT; };
+		93816270B9CFDEE02871A1B5 /* Pods-Sweater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweater.debug.xcconfig"; path = "Target Support Files/Pods-Sweater/Pods-Sweater.debug.xcconfig"; sourceTree = "<group>"; };
+		E9ADBA4F2FF1610B3A3C4AFD /* Pods-SweaterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweaterTests.debug.xcconfig"; path = "Target Support Files/Pods-SweaterTests/Pods-SweaterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC99B985C72861C65EF01978 /* Pods-SweaterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweaterTests.release.xcconfig"; path = "Target Support Files/Pods-SweaterTests/Pods-SweaterTests.release.xcconfig"; sourceTree = "<group>"; };
+		F33D83D5861636C4B3A0F156 /* Pods-Sweater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweater.release.xcconfig"; path = "Target Support Files/Pods-Sweater/Pods-Sweater.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +96,7 @@
 				5FE4EB59265AC5A300FA9E30 /* Apollo in Frameworks */,
 				5FE4EB57265AC5A300FA9E30 /* ApolloWebSocket in Frameworks */,
 				5FE4EB5B265AC5A300FA9E30 /* ApolloCodegenLib in Frameworks */,
+				BE22C499B133A7D3CD62F319 /* Pods_Sweater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B90F801E54097FF49ECFB5B /* Pods_SweaterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6763B636085FD369A94B0F /* Pods_Sweater_SweaterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +126,8 @@
 				5F8C00432659952C00A650C4 /* SweaterTests */,
 				5F8C004E2659952C00A650C4 /* SweaterUITests */,
 				5F8C00282659952800A650C4 /* Products */,
+				614589C599EA6BB27120142C /* Pods */,
+				CC5B4DA19DE06D3E2EDED20A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +210,7 @@
 				5FE4EB5E265AC93100FA9E30 /* LookupCity.graphql */,
 				5FE4EB60265ACC3600FA9E30 /* API.swift */,
 				5FE4EB51265AC34900FA9E30 /* LocationWeatherLookup.swift */,
+				5FC3F637265B71460022EEC4 /* CityCreator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -212,6 +232,29 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		614589C599EA6BB27120142C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93816270B9CFDEE02871A1B5 /* Pods-Sweater.debug.xcconfig */,
+				F33D83D5861636C4B3A0F156 /* Pods-Sweater.release.xcconfig */,
+				4DE75E991D3C7027834677AA /* Pods-Sweater-SweaterUITests.debug.xcconfig */,
+				0367C9DCDE398E9FCC7A9BFB /* Pods-Sweater-SweaterUITests.release.xcconfig */,
+				E9ADBA4F2FF1610B3A3C4AFD /* Pods-SweaterTests.debug.xcconfig */,
+				EC99B985C72861C65EF01978 /* Pods-SweaterTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC5B4DA19DE06D3E2EDED20A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E70B38A4FC6451E65747022 /* Pods_Sweater.framework */,
+				0BA0A3D02176CA2868414290 /* Pods_Sweater_SweaterUITests.framework */,
+				2269A04E2C4D51FE0F20942A /* Pods_SweaterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,10 +262,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8C00542659952C00A650C4 /* Build configuration list for PBXNativeTarget "Sweater" */;
 			buildPhases = (
+				11B1DC9AFFD7D20708ABE520 /* [CP] Check Pods Manifest.lock */,
 				5FE4EB5C265AC60F00FA9E30 /* Apollo CLI */,
 				5F8C00232659952800A650C4 /* Sources */,
 				5F8C00242659952800A650C4 /* Frameworks */,
 				5F8C00252659952800A650C4 /* Resources */,
+				E38E69EE9CD3714F82FA7C43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8C00572659952C00A650C4 /* Build configuration list for PBXNativeTarget "SweaterTests" */;
 			buildPhases = (
+				A68C04F5BC03E312779B911B /* [CP] Check Pods Manifest.lock */,
 				5F8C003C2659952C00A650C4 /* Sources */,
 				5F8C003D2659952C00A650C4 /* Frameworks */,
 				5F8C003E2659952C00A650C4 /* Resources */,
@@ -261,9 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8C005A2659952C00A650C4 /* Build configuration list for PBXNativeTarget "SweaterUITests" */;
 			buildPhases = (
+				8B5723EB3129C2760E8D7933 /* [CP] Check Pods Manifest.lock */,
 				5F8C00472659952C00A650C4 /* Sources */,
 				5F8C00482659952C00A650C4 /* Frameworks */,
 				5F8C00492659952C00A650C4 /* Resources */,
+				582756FD57D4FAFB5E686C21 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,6 +397,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		11B1DC9AFFD7D20708ABE520 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sweater-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		582756FD57D4FAFB5E686C21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sweater-SweaterUITests/Pods-Sweater-SweaterUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sweater-SweaterUITests/Pods-Sweater-SweaterUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sweater-SweaterUITests/Pods-Sweater-SweaterUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5FE4EB5C265AC60F00FA9E30 /* Apollo CLI */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +454,67 @@
 			shellPath = /bin/sh;
 			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://graphql-weather-api.herokuapp.com\"\n\n";
 		};
+		8B5723EB3129C2760E8D7933 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sweater-SweaterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A68C04F5BC03E312779B911B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SweaterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E38E69EE9CD3714F82FA7C43 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sweater/Pods-Sweater-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sweater/Pods-Sweater-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sweater/Pods-Sweater-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -375,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FDDF3872659D65600D71BB2 /* MockDataManager.swift in Sources */,
+				5FC3F638265B71460022EEC4 /* CityCreator.swift in Sources */,
 				5F8C005F2659AB2500A650C4 /* WeatherForLocationCollectionViewCell.swift in Sources */,
 				5F8C002F2659952800A650C4 /* WeatherViewController.swift in Sources */,
 				5FE4EB52265AC34900FA9E30 /* LocationWeatherLookup.swift in Sources */,
@@ -556,6 +705,7 @@
 		};
 		5F8C00552659952C00A650C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93816270B9CFDEE02871A1B5 /* Pods-Sweater.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -575,6 +725,7 @@
 		};
 		5F8C00562659952C00A650C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33D83D5861636C4B3A0F156 /* Pods-Sweater.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -594,6 +745,7 @@
 		};
 		5F8C00582659952C00A650C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9ADBA4F2FF1610B3A3C4AFD /* Pods-SweaterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -616,6 +768,7 @@
 		};
 		5F8C00592659952C00A650C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC99B985C72861C65EF01978 /* Pods-SweaterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -638,6 +791,7 @@
 		};
 		5F8C005B2659952C00A650C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE75E991D3C7027834677AA /* Pods-Sweater-SweaterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -658,6 +812,7 @@
 		};
 		5F8C005C2659952C00A650C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0367C9DCDE398E9FCC7A9BFB /* Pods-Sweater-SweaterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

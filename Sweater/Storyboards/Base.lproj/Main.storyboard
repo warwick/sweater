@@ -30,7 +30,7 @@
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bpL-zi-jqH" kind="presentation" id="Gq1-ov-u4n"/>
+                                    <action selector="addLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6m-mv-Fyk"/>
                                 </connections>
                             </button>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-JU-T5z">
@@ -200,7 +200,7 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LCa-Wv-ZpW">
                                 <rect key="frame" x="146" y="834.5" width="122" height="27.5"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGray3Color"/>
-                                <color key="currentPageIndicatorTintColor" name="Location Card Background"/>
+                                <color key="currentPageIndicatorTintColor" name="Accent Color"/>
                                 <connections>
                                     <action selector="changePage:" destination="BYZ-38-t0r" eventType="valueChanged" id="Uwn-hH-KVM"/>
                                 </connections>
@@ -227,42 +227,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="87.723214285714278"/>
-        </scene>
-        <!--Add City Table View Controller-->
-        <scene sceneID="KmI-Hm-s2p">
-            <objects>
-                <tableViewController id="bpL-zi-jqH" customClass="AddCityTableViewController" customModule="Sweater" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WW9-tf-68U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a City" id="Vr9-C9-I52">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="bpL-zi-jqH" id="iQY-fs-8Nf"/>
-                            </connections>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AeW-D7-OAq">
-                                <rect key="frame" x="0.0" y="75.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AeW-D7-OAq" id="xbK-Jm-d2c">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="bpL-zi-jqH" id="W0l-j1-hDv"/>
-                            <outlet property="delegate" destination="bpL-zi-jqH" id="YZm-bB-1ZI"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ao2-v4-Ulz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="912" y="88"/>
         </scene>
     </scenes>
     <resources>

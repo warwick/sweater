@@ -7,12 +7,14 @@
 
 import UIKit
 import CoreData
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        GMSPlacesClient.provideAPIKey("AIzaSyDpkbQpL0zrIPZYrrXYVKoph8gc8Pr1j70")
 //        MockDataManager.shared.loadMockData()
         
         return true

@@ -100,6 +100,32 @@ class WeatherViewModel {
         updateSelectedCard()
         
     }
+    
+    func addNewLocation(withCityName city : String, identifier: String) {
+        
+        let newCity = Location(context: _persistentContainer.viewContext)
+        newCity.isCurrentLocation = false
+        if let lastExistingViewModel = self.locationViewModels.last {
+            newCity.sortIndex = lastExistingViewModel.sortIndex() + 1
+        } else {
+            newCity.sortIndex = 0
+        }
+        newCity.uuid = NSUUID().uuidString
+        newCity.isUpdatePending = true
+        newCity.cityName = city
+        newCity.cityId = identifier
+        self._user.addToLocations(newCity)
+        
+        do {
+            try self._user.managedObjectContext?.save()
+        } catch {
+            fatalError("Could not save core data")
+        }
+
+        let viewModel = LocationViewModel(withLocation: newCity, weatherViewModel: self)
+        self.locationViewModels.append(viewModel)
+
+    }
             
     func deleteLocation(withViewModel locationViewModel : LocationViewModel) {
 
