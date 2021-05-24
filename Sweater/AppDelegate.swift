@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GMSPlacesClient.provideAPIKey("AIzaSyDpkbQpL0zrIPZYrrXYVKoph8gc8Pr1j70")
-//        MockDataManager.shared.loadMockData()
+        
+        if CommandLine.arguments.contains("-ui-testing") {
+            MockDataManager.shared.loadMockData()
+        }
         
         return true
     }

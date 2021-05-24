@@ -10,33 +10,86 @@ import XCTest
 class SweaterUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testCorrectNumberOfDots() throws {
+        
         let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing"]
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let indicatorValue = app.pageIndicators.firstMatch.value as? String
+        XCTAssert(indicatorValue == "page 1 of 3", "There page indicator was in an unexpected state")
+
+    }
+    
+    func testAddNewLocation() throws {
+        
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing"]
+        app.launch()
+
+        app.buttons.firstMatch.tap() // Tap on the plus button.  There's only one button right now, so it's an easy find.
+        
+        let searchField = app.searchFields.firstMatch
+        XCTAssertNotNil(searchField, "The search field was not found")
+        
+        searchField.tap()
+        searchField.typeText("Fredericton")
+        
+        let firstResult = app.tables.cells.firstMatch
+        firstResult.tap()
+        
+        sleep(3) // Give it more than enough time to actually add the new location
+        
+        let indicatorValue = app.pageIndicators.firstMatch.value as? String
+        XCTAssert(indicatorValue == "page 4 of 4", "There page indicator was in an unexpected state")
+        
+    }
+    
+    func testDeleteLocation() throws {
+        
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing"]
+        app.launch()
+
+        app.collectionViews.firstMatch.swipeLeft()
+        app.collectionViews.firstMatch.swipeLeft()
+        
+        var indicatorValue = app.pageIndicators.firstMatch.value as? String
+        XCTAssert(indicatorValue == "page 3 of 3", "There page indicator was in an unexpected state")
+
+        let deleteButton = app.collectionViews.cells.firstMatch.buttons.firstMatch
+        deleteButton.tap()
+        
+        sleep(1) // Give it more than enough time to delete
+        
+        indicatorValue = app.pageIndicators.firstMatch.value as? String
+        XCTAssert(indicatorValue == "page 2 of 2", "There page indicator was in an unexpected state")
+
+    }
+    
+    func testShowDetails() throws {
+        
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing"]
+        app.launch()
+
+        app.collectionViews.firstMatch.swipeLeft()
+
+        let locationCell = app.collectionViews.cells.firstMatch
+        locationCell.tap()
+        
+        let locationLabel = app.staticTexts["Vancouver"]
+        XCTAssertNotNil(locationLabel)
+        
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
 }
