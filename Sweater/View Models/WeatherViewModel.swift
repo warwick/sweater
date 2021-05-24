@@ -142,4 +142,19 @@ class WeatherViewModel {
         
     }
     
+    func currentLocationViewModel() -> LocationViewModel? {
+        
+        if let visibleCityId = self._user.lastVisibleCityId {
+            for location in self.locationViewModels {
+                if location.cityId() == visibleCityId {
+                    return location
+                }
+            }
+        }
+        
+        return nil
+        
+    }
+
+    
 }

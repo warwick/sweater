@@ -133,6 +133,10 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         return cellSize
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetails", sender: self)
+    }
         
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
@@ -212,5 +216,12 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         viewController.dismiss(animated: true, completion: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let details = segue.destination as? WeatherDetailViewController {
+            details.viewModel = viewModel?.currentLocationViewModel()
+        }
+        
+    }
     
 }

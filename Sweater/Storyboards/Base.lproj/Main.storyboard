@@ -112,34 +112,16 @@
                                                     <color key="textColor" name="Location Card Secondary Text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High: 18°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKs-H8-MBu">
-                                                    <rect key="frame" x="32" y="739" width="79" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" name="Location Card Secondary Text"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low: 10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjw-83-RGA">
-                                                    <rect key="frame" x="32" y="772" width="74" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" name="Location Card Secondary Text"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind: 8 kph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-xB-2M3">
-                                                    <rect key="frame" x="280" y="739" width="102" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" name="Location Card Secondary Text"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 70%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-rJ-c8w">
-                                                    <rect key="frame" x="257" y="772" width="125" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" name="Location Card Secondary Text"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your mother wants you to bring a sweater, but your friends will all make fun of you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNn-6P-C5X">
                                                     <rect key="frame" x="32" y="464" width="351.5" height="98.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="24"/>
                                                     <color key="textColor" name="Location Card Primary Text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for More Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-8B-x2A">
+                                                    <rect key="frame" x="31" y="736.5" width="352" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" name="Location Card Secondary Text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -147,10 +129,9 @@
                                                 <constraint firstItem="l26-6U-Fk1" firstAttribute="top" secondItem="iLy-yZ-Apl" secondAttribute="top" id="7lG-jU-acx"/>
                                                 <constraint firstItem="hUw-xM-LPP" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="12" id="7xS-Tx-KXw"/>
                                                 <constraint firstItem="hUw-xM-LPP" firstAttribute="top" secondItem="tBv-Cq-4DR" secondAttribute="top" id="9ka-L6-omT"/>
-                                                <constraint firstAttribute="bottom" secondItem="Vjw-83-RGA" secondAttribute="bottom" constant="20" id="AXi-TY-cK8"/>
-                                                <constraint firstAttribute="bottom" secondItem="jHe-rJ-c8w" secondAttribute="bottom" constant="20" id="Efz-dv-waJ"/>
                                                 <constraint firstItem="iLy-yZ-Apl" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="FRw-DP-J8h"/>
                                                 <constraint firstItem="iLy-yZ-Apl" firstAttribute="top" secondItem="frY-Qv-cGx" secondAttribute="bottom" constant="27" id="Gxi-F1-n1T"/>
+                                                <constraint firstItem="7vo-8B-x2A" firstAttribute="bottom" secondItem="hUw-xM-LPP" secondAttribute="bottom" constant="-20" id="IB0-QJ-Uhd"/>
                                                 <constraint firstItem="JNn-6P-C5X" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="IdX-ua-N4i"/>
                                                 <constraint firstItem="p7y-Lj-Vj4" firstAttribute="top" secondItem="hUw-xM-LPP" secondAttribute="top" id="KyU-Lk-754"/>
                                                 <constraint firstItem="ms8-8m-cPI" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="MBv-mp-gVb"/>
@@ -160,20 +141,13 @@
                                                 <constraint firstItem="l26-6U-Fk1" firstAttribute="leading" secondItem="iLy-yZ-Apl" secondAttribute="trailing" id="Wyc-LD-4lm"/>
                                                 <constraint firstAttribute="trailing" secondItem="hUw-xM-LPP" secondAttribute="trailing" constant="12" id="b3r-bM-mLF"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l26-6U-Fk1" secondAttribute="trailing" constant="20" symbolic="YES" id="coZ-Pa-LGB"/>
-                                                <constraint firstItem="ah4-xB-2M3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IKs-H8-MBu" secondAttribute="trailing" constant="8" symbolic="YES" id="e16-N6-Tgz"/>
                                                 <constraint firstItem="jFN-cd-GO7" firstAttribute="centerX" secondItem="ms8-8m-cPI" secondAttribute="centerX" id="eNx-mo-j2z"/>
                                                 <constraint firstAttribute="bottom" secondItem="hUw-xM-LPP" secondAttribute="bottom" id="fdK-ab-aw7"/>
-                                                <constraint firstItem="IKs-H8-MBu" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="g6q-dy-Lxl"/>
-                                                <constraint firstItem="Vjw-83-RGA" firstAttribute="leading" secondItem="tBv-Cq-4DR" secondAttribute="leading" constant="32" id="gKZ-fy-IQr"/>
-                                                <constraint firstAttribute="trailing" secondItem="ah4-xB-2M3" secondAttribute="trailing" constant="32" id="goT-Qu-NyF"/>
                                                 <constraint firstItem="frY-Qv-cGx" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="lQJ-aM-bt0"/>
-                                                <constraint firstItem="Vjw-83-RGA" firstAttribute="top" secondItem="IKs-H8-MBu" secondAttribute="bottom" constant="8" symbolic="YES" id="oG2-j4-xS7"/>
-                                                <constraint firstItem="jHe-rJ-c8w" firstAttribute="top" secondItem="ah4-xB-2M3" secondAttribute="bottom" constant="8" symbolic="YES" id="qFJ-XB-5km"/>
-                                                <constraint firstAttribute="trailing" secondItem="jHe-rJ-c8w" secondAttribute="trailing" constant="32" id="qU3-cH-qwx"/>
+                                                <constraint firstItem="7vo-8B-x2A" firstAttribute="centerX" secondItem="tBv-Cq-4DR" secondAttribute="centerX" id="nLU-LH-sOm"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JNn-6P-C5X" secondAttribute="trailing" constant="20" symbolic="YES" id="qsR-yM-dje"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p7y-Lj-Vj4" secondAttribute="trailing" constant="20" symbolic="YES" id="t3W-E6-BLi"/>
                                                 <constraint firstItem="jFN-cd-GO7" firstAttribute="bottom" secondItem="ms8-8m-cPI" secondAttribute="top" id="ti0-Yr-TEX"/>
-                                                <constraint firstItem="jHe-rJ-c8w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vjw-83-RGA" secondAttribute="trailing" constant="8" symbolic="YES" id="xFN-xF-01g"/>
                                                 <constraint firstItem="frY-Qv-cGx" firstAttribute="top" secondItem="ms8-8m-cPI" secondAttribute="bottom" constant="-7" id="xQj-4X-PrB"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -184,12 +158,8 @@
                                             <outlet property="degreesLabel" destination="l26-6U-Fk1" id="o0y-jo-1eF"/>
                                             <outlet property="deleteButton" destination="p7y-Lj-Vj4" id="wk9-Z9-R6N"/>
                                             <outlet property="flavourText" destination="JNn-6P-C5X" id="iDr-tz-fKU"/>
-                                            <outlet property="high" destination="IKs-H8-MBu" id="xhZ-uJ-bdr"/>
-                                            <outlet property="humidity" destination="jHe-rJ-c8w" id="DtC-kX-Vqv"/>
-                                            <outlet property="low" destination="Vjw-83-RGA" id="pu3-jl-I7a"/>
                                             <outlet property="temperature" destination="iLy-yZ-Apl" id="tRf-ol-WNL"/>
                                             <outlet property="weatherDescription" destination="frY-Qv-cGx" id="G0J-Xk-yaE"/>
-                                            <outlet property="wind" destination="ah4-xB-2M3" id="vbk-kx-HqP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -222,11 +192,92 @@
                     <connections>
                         <outlet property="collectionView" destination="tLs-JU-T5z" id="XMb-ZO-wxe"/>
                         <outlet property="pageControl" destination="LCa-Wv-ZpW" id="8hp-BI-jKd"/>
+                        <segue destination="tHQ-OA-kP2" kind="presentation" identifier="showDetails" id="eZJ-Ad-Lig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="87.723214285714278"/>
+        </scene>
+        <!--Weather Detail View Controller-->
+        <scene sceneID="yxc-oG-Sra">
+            <objects>
+                <viewController id="tHQ-OA-kP2" customClass="WeatherDetailViewController" customModule="Sweater" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uDR-vw-D4N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High: 18°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwU-hV-oOi">
+                                <rect key="frame" x="20" y="179" width="79" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" name="Location Card Primary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind: 8 kph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt9-a0-rwp">
+                                <rect key="frame" x="20" y="245" width="374" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" name="Location Card Primary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low: 10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAU-ez-0VL">
+                                <rect key="frame" x="20" y="212" width="374" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" name="Location Card Primary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWI-JU-llr">
+                                <rect key="frame" x="20" y="20" width="374" height="66"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                <color key="textColor" name="Location Card Primary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Few Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5g-bL-NDI">
+                                <rect key="frame" x="20" y="94" width="374" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                <color key="textColor" name="Location Card Secondary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 70%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAb-HL-Yua">
+                                <rect key="frame" x="20" y="278" width="374" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" name="Location Card Primary Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fwj-QN-iBg"/>
+                        <color key="backgroundColor" name="Location Card Background"/>
+                        <constraints>
+                            <constraint firstItem="QwU-hV-oOi" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="3VM-cA-K8p"/>
+                            <constraint firstItem="Fwj-QN-iBg" firstAttribute="trailing" secondItem="cWI-JU-llr" secondAttribute="trailing" constant="20" id="3kO-y5-dxL"/>
+                            <constraint firstItem="cWI-JU-llr" firstAttribute="top" secondItem="Fwj-QN-iBg" secondAttribute="top" constant="20" id="6Yc-R4-Gis"/>
+                            <constraint firstItem="QwU-hV-oOi" firstAttribute="top" secondItem="F5g-bL-NDI" secondAttribute="bottom" constant="52" id="7Py-fF-cIM"/>
+                            <constraint firstItem="EAU-ez-0VL" firstAttribute="top" secondItem="QwU-hV-oOi" secondAttribute="bottom" constant="8" symbolic="YES" id="FaL-1f-Ead"/>
+                            <constraint firstItem="kt9-a0-rwp" firstAttribute="top" secondItem="EAU-ez-0VL" secondAttribute="bottom" constant="8" symbolic="YES" id="Fm3-zs-ViR"/>
+                            <constraint firstItem="Fwj-QN-iBg" firstAttribute="trailing" secondItem="EAU-ez-0VL" secondAttribute="trailing" constant="20" id="IBX-km-fiI"/>
+                            <constraint firstItem="F5g-bL-NDI" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="YaE-9p-z0G"/>
+                            <constraint firstItem="Fwj-QN-iBg" firstAttribute="trailing" secondItem="F5g-bL-NDI" secondAttribute="trailing" constant="20" id="bbj-bA-so3"/>
+                            <constraint firstItem="Fwj-QN-iBg" firstAttribute="trailing" secondItem="rAb-HL-Yua" secondAttribute="trailing" constant="20" id="fFh-zR-lDW"/>
+                            <constraint firstItem="rAb-HL-Yua" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="gRF-e2-vyP"/>
+                            <constraint firstItem="rAb-HL-Yua" firstAttribute="top" secondItem="kt9-a0-rwp" secondAttribute="bottom" constant="8" symbolic="YES" id="i5D-hP-YmZ"/>
+                            <constraint firstItem="Fwj-QN-iBg" firstAttribute="trailing" secondItem="kt9-a0-rwp" secondAttribute="trailing" constant="20" id="iNS-cY-hEa"/>
+                            <constraint firstItem="cWI-JU-llr" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="p3Y-Mf-IRy"/>
+                            <constraint firstItem="F5g-bL-NDI" firstAttribute="top" secondItem="cWI-JU-llr" secondAttribute="bottom" constant="8" symbolic="YES" id="qWM-fi-Rsy"/>
+                            <constraint firstItem="EAU-ez-0VL" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="quD-Bg-vWw"/>
+                            <constraint firstItem="kt9-a0-rwp" firstAttribute="leading" secondItem="Fwj-QN-iBg" secondAttribute="leading" constant="20" id="soc-5d-s0k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityName" destination="cWI-JU-llr" id="3eM-c3-LAE"/>
+                        <outlet property="high" destination="QwU-hV-oOi" id="aWG-jF-9Iw"/>
+                        <outlet property="humidity" destination="rAb-HL-Yua" id="73g-tQ-c3O"/>
+                        <outlet property="low" destination="EAU-ez-0VL" id="AM3-bA-3DH"/>
+                        <outlet property="weatherDescription" destination="F5g-bL-NDI" id="Qcl-lu-MFQ"/>
+                        <outlet property="wind" destination="kt9-a0-rwp" id="MDe-eR-Iaw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6c-oQ-1MX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="89"/>
         </scene>
     </scenes>
     <resources>

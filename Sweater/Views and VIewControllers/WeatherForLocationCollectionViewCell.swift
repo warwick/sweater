@@ -18,19 +18,11 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var degreesLabel: UILabel!
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
-    @IBOutlet weak var high: UILabel!
-    @IBOutlet weak var low: UILabel!
-    @IBOutlet weak var wind: UILabel!
-    @IBOutlet weak var humidity: UILabel!
     @IBOutlet weak var flavourText: UILabel!
     
     var temperatureListener : AnyCancellable?
     var temperatureAvailableListener : AnyCancellable?
     var weatherDescriptionListener : AnyCancellable?
-    var highListener : AnyCancellable?
-    var lowListener : AnyCancellable?
-    var windListener : AnyCancellable?
-    var humidityListener : AnyCancellable?
     var flavourTextListener : AnyCancellable?
 
     func configure() {
@@ -45,10 +37,6 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         degreesLabel.isHidden = !viewModel.temperatureAvailable
         cityName.text = viewModel.cityName()
         weatherDescription.text = viewModel.weatherDescription
-        high.text = viewModel.todaysHigh
-        low.text = viewModel.todaysLow
-        wind.text = viewModel.todaysWind
-        humidity.text = viewModel.todaysHumidity
         flavourText.text = viewModel.flavourText
         
         self.cancelListeners()
@@ -65,22 +53,6 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
             self.weatherDescription.text = value
         })
 
-        highListener = viewModel.$todaysHigh.sink(receiveValue: { value in
-            self.high.text = value
-        })
-
-        lowListener = viewModel.$todaysLow.sink(receiveValue: { value in
-            self.low.text = value
-        })
-
-        windListener = viewModel.$todaysWind.sink(receiveValue: { value in
-            self.wind.text = value
-        })
-
-        humidityListener = viewModel.$todaysHumidity.sink(receiveValue: { value in
-            self.humidity.text = value
-        })
-
         flavourTextListener = viewModel.$flavourText.sink(receiveValue: { value in
             self.flavourText.text = value
         })
@@ -91,10 +63,6 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         temperatureListener?.cancel()
         temperatureAvailableListener?.cancel()
         weatherDescriptionListener?.cancel()
-        highListener?.cancel()
-        lowListener?.cancel()
-        windListener?.cancel()
-        humidityListener?.cancel()
         flavourTextListener?.cancel()
     }
     
