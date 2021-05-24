@@ -9,9 +9,10 @@ import UIKit
 import Combine
 
 class WeatherForLocationCollectionViewCell: UICollectionViewCell {
-            
-    var viewModel: LocationViewModel?
-    
+        
+    /**
+     Outlets
+     */
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var temperature: UILabel!
@@ -20,11 +21,19 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var flavourText: UILabel!
     
+    /**
+     Supporting variables
+     */
+    var viewModel: LocationViewModel?
+
     var temperatureListener : AnyCancellable?
     var temperatureAvailableListener : AnyCancellable?
     var weatherDescriptionListener : AnyCancellable?
     var flavourTextListener : AnyCancellable?
 
+    /**
+     This sets up the views in the cell with data form the viewmodel, along with setting up callbacks so we'll get updated information when it's available.
+     */
     func configure() {
         
         guard let viewModel = viewModel else {
@@ -59,6 +68,9 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
 
     }
     
+    /**
+     Cancel listeners so they're not hanging around past their usefulness.  We do this in a couple spots, so it's broken out here for DRY.
+     */
     func cancelListeners() {
         temperatureListener?.cancel()
         temperatureAvailableListener?.cancel()
@@ -66,10 +78,16 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         flavourTextListener?.cancel()
     }
     
+    /**
+     When the user taps the 'x' button on a card, this fires, passing the request along to the viewModel who will handle it
+     */
     @IBAction func deleteLocation(_ sender : Any) {
         viewModel?.deleteLocation()
     }
     
+    /**
+     We don't want to leave listeners hanging around after their useful lifespan.
+     */
     deinit {
         self.cancelListeners()
     }

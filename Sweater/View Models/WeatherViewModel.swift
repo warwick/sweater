@@ -10,12 +10,23 @@ import CoreData
 
 class WeatherViewModel {
 
+    /**
+     Private because we don't want to expose our models.  That makes it far too tempting to access them directly.
+     */
     private let _persistentContainer : NSPersistentContainer
     private let _user : User
     
+    /**
+     Observable variables
+     */
     @Published var locationViewModels : [LocationViewModel] = []
     @Published var selectedCardIndex : Int = 0
     
+    /**
+     This is where the app loads it's data.  There's one weather view model in the app, attached to the WeatherViewController.
+     We do some setup, making sure there's a 'current location card', sorting the locations so they're always in the same order
+     and updating our variables.
+     */
     init(withPersistentContainer persistentContainer : NSPersistentContainer) {
         
         // Store away the persistent coordinator
@@ -79,9 +90,8 @@ class WeatherViewModel {
     }
                 
     /**
-     The dot we should be selecting
+     Figure out which page control dot we should be selecting and which card we should be showing
      */
-
     func updateSelectedCard() {
         
         var selectedIndex = 0
@@ -98,6 +108,10 @@ class WeatherViewModel {
         
     }
     
+    /**
+     The network or the user can change which city we're looking at.  Store it in the model and then update our observable variable
+     based on it's new content.
+     */
     func setSelectedCity(withId id : String) {
         
         self._user.lastVisibleCityId = id
@@ -106,6 +120,11 @@ class WeatherViewModel {
         
     }
     
+    /**
+     When we have enough info from the network that we can add a new location, we can call this.
+     Doesn't create a new location if one already exists with a matching identifier.
+     Selects the location in any case, so the user knows that it's available in their app.
+     */
     func addNewLocation(withCityName city : String, identifier: String) {
         
         // Check to see if a location with the same identifier already exists
@@ -142,7 +161,10 @@ class WeatherViewModel {
         setSelectedCity(withId: identifier)
 
     }
-            
+         
+    /**
+     If the location view model has deleted it's model, it calls this to get rid of itself.
+     */
     func deleteLocation(withViewModel locationViewModel : LocationViewModel) {
 
         var selectedIndex = 0
@@ -158,6 +180,9 @@ class WeatherViewModel {
         
     }
     
+    /**
+     A convenience method so we know which view model we're looking at
+     */
     func currentLocationViewModel() -> LocationViewModel? {
         
         if let visibleCityId = self._user.lastVisibleCityId {

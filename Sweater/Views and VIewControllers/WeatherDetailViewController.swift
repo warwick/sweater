@@ -10,14 +10,20 @@ import Combine
 
 class WeatherDetailViewController: UIViewController {
 
-    var viewModel : LocationViewModel?
-
+    /**
+     Outlets
+     */
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var high: UILabel!
     @IBOutlet weak var low: UILabel!
     @IBOutlet weak var wind: UILabel!
     @IBOutlet weak var humidity: UILabel!
+
+    /**
+     Supporting variables
+     */
+    var viewModel : LocationViewModel?
 
     var cityNameListener : AnyCancellable?
     var weatherDescriptionListener : AnyCancellable?
@@ -26,6 +32,9 @@ class WeatherDetailViewController: UIViewController {
     var windListener : AnyCancellable?
     var humidityListener : AnyCancellable?
     
+    /**
+     Setup the detail view with text from the view model, and set up some listeners so the text will update if the viewmodel changes
+     */
     override func viewDidLoad() {
         
         guard let viewModel = viewModel else {
@@ -65,6 +74,9 @@ class WeatherDetailViewController: UIViewController {
 
     }
     
+    /**
+     This doesn't really need to be broken out, but I think the naming makes it more obvious what's happening in viewWillDisappear
+     */
     func cancelListeners() {
         cityNameListener?.cancel()
         weatherDescriptionListener?.cancel()
@@ -74,6 +86,9 @@ class WeatherDetailViewController: UIViewController {
         humidityListener?.cancel()
     }
         
+    /**
+     Don't leave unneeded listeners hanging around
+     */
     override func viewWillDisappear(_ animated: Bool) {
         self.cancelListeners()
     }

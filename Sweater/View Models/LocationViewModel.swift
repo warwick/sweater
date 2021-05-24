@@ -10,15 +10,24 @@ import Combine
 
 class LocationViewModel : Hashable {
 
+    /**
+     A few models and network helpers we don't want to expose directly
+     */
     private let _location : Location
     private let _weatherViewModel : WeatherViewModel
     private let _networkClient : LocationWeatherLookup
     
+    /**
+     Helper variables
+     */
     var weatherDescriptionListener : AnyCancellable?
     
-    let unsetDoubleValue = -999.0
-    let unsetIntValue = -999
+    let unsetDoubleValue = -999.0 // We've set -1000 as the value for temperatures and other numbers that haven't been set in core data
+    let unsetIntValue = -999 // We've set -1000 as the value for temperatures and other numbers that haven't been set in core data
 
+    /**
+     Observable variables
+     */
     @Published var cityName = "--"
     @Published var weatherDescription = ""
     @Published var temperature = "--"
@@ -29,6 +38,9 @@ class LocationViewModel : Hashable {
     @Published var todaysWind = "Wind: --"
     @Published var todaysHumidity = "Humidity: --"
     
+    /**
+     Set up the location viewmodel.  This mostly consists of making sure we're calling all our formatting methods so they can assign values to our observable variables
+     */
     init(withLocation location : Location, weatherViewModel: WeatherViewModel) {
         
         self._location = location
@@ -53,26 +65,44 @@ class LocationViewModel : Hashable {
         
     }
     
+    /**
+     Used by the diffable collection view controller
+     */
     func hash(into hasher: inout Hasher) {
         hasher.combine(self._location.uuid)
     }
     
+    /**
+     Used by the diffable collection view controller
+     */
     static func == (lhs: LocationViewModel, rhs: LocationViewModel) -> Bool {
         lhs._location.uuid == rhs._location.uuid
     }
     
+    /**
+     Exposes the sort index so we can make sure our locations always appear in the same order
+     */
     func sortIndex() -> Int16 {
         return self._location.sortIndex
     }
 
+    /**
+     Tells us if this is a 'current location' card or not.  Current location cards don't show a delete button and indicate that they're the current location.
+     */
     func isCurrentLocation() -> Bool {
         return self._location.isCurrentLocation
     }
         
+    /**
+     Exposes the cityId.  We don't make it observable since we don't expect it to change.
+     */
     func cityId() -> String {
         return self._location.cityId ?? "UNKNOWN"
     }
     
+    /**
+     When the network call comes back with weather data, we drop it into the viewModel and let it update the model, as well as it's own formatting methods
+     */
     func update(withWeatherData weatherData: GetCityByIdQuery.Data.GetCityById.Weather) {
         
         // Update the core data model
@@ -110,14 +140,23 @@ class LocationViewModel : Hashable {
         
     }
     
+    /**
+     Formatting method
+     */
     func updateCityName() {
         self.cityName = self._location.cityName ?? NSLocalizedString("--", comment: "Unknown City")
     }
 
+    /**
+     Formatting method
+     */
     func updateWeatherDescription() {
         self.weatherDescription = self._location.cachedDescription ?? ""
     }
 
+    /**
+     Formatting method
+     */
     func updateTemperature() {
         
         if self._location.cachedTemperature > unsetDoubleValue {
@@ -142,6 +181,9 @@ class LocationViewModel : Hashable {
         
     }
 
+    /**
+     Formatting method
+     */
     func pickFlavourText() {
         
         // My intent here was to do something based on the 'feels like' temperature, but I realized I don't have enough data to
@@ -160,6 +202,9 @@ class LocationViewModel : Hashable {
         
     }
 
+    /**
+     Formatting method
+     */
     func updateTodaysHigh() {
 
         var text = "High: "
@@ -187,6 +232,9 @@ class LocationViewModel : Hashable {
         
     }
     
+    /**
+     Formatting method
+     */
     func updateTodaysLow() {
 
         var text = "Low: "
@@ -214,6 +262,9 @@ class LocationViewModel : Hashable {
 
     }
 
+    /**
+     Formatting method
+     */
     func updateTodaysWind() {
 
         var text = "Wind: "
@@ -241,6 +292,9 @@ class LocationViewModel : Hashable {
 
     }
 
+    /**
+     Formatting method
+     */
     func updateTodaysHumidity() {
 
         var text = "Humidity: "
@@ -255,6 +309,9 @@ class LocationViewModel : Hashable {
 
     }
     
+    /**
+     When the UI wants to delete a location, it calls this.  We delete the model from core data and let the weather view model know that this object can go away.
+     */
     func deleteLocation() {
         
         // In an ideal world, the model would be observed and the weather view model would be updated
@@ -271,6 +328,9 @@ class LocationViewModel : Hashable {
                 
     }
     
+    /**
+     Used when a 'current location' is found from location services.  Updates out model so we can go and use our regular weather lookup functions.
+     */
     func setCity(_ cityName : String, andCityId identifier : String) {
         
         // This is used when we're a 'current location' view model and we've found the location we're in now

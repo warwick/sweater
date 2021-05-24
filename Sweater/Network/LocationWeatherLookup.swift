@@ -17,6 +17,9 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
     
     var viewModel : LocationViewModel?
     
+    /**
+        Fires off a weather lookup request and updates our view model with the results
+     */
     func lookupWeather() {
                 
         guard let viewModel = viewModel else {
@@ -45,6 +48,10 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
 
     }
     
+    /**
+     Starts locations services up so that we can lookup where we are.
+     We use this information to display local weather to the user.
+     */
     func lookupCurrentLocationWeather() {
         
         locationManager.requestWhenInUseAuthorization()
@@ -54,6 +61,10 @@ class LocationWeatherLookup: NSObject, CLLocationManagerDelegate {
         
     }
     
+    /**
+     Our implemtation of the location manager callback.
+     Results in us figuring out which city we're in and updating the 'current location' model appropriately.
+     */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // When we expand this app to support refreshing outside of the initial load, maybe we'll need to turn this back on periodically, but until then it's just disrespecfully wasting the users battery.
