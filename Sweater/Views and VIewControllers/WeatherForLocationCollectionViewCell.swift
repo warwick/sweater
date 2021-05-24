@@ -98,6 +98,10 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         flavourTextListener?.cancel()
     }
     
+    @IBAction func deleteLocation(_ sender : Any) {
+        viewModel?.deleteLocation()
+    }
+    
     deinit {
         self.cancelListeners()
     }

@@ -11,6 +11,7 @@ import Combine
 class LocationViewModel : Hashable {
 
     private let _location : Location
+    private let _weatherViewModel : WeatherViewModel
     private let _networkClient : LocationWeatherLookup
     
     var weatherDescriptionListener : AnyCancellable?
@@ -27,9 +28,10 @@ class LocationViewModel : Hashable {
     @Published var todaysWind = "Wind: --"
     @Published var todaysHumidity = "Humidity: --"
     
-    init(withLocation location : Location) {
+    init(withLocation location : Location, weatherViewModel: WeatherViewModel) {
         
         self._location = location
+        self._weatherViewModel = weatherViewModel
         
         self._networkClient = LocationWeatherLookup()
                 
@@ -228,6 +230,22 @@ class LocationViewModel : Hashable {
 
         self.todaysHumidity = text
 
+    }
+    
+    func deleteLocation() {
+        
+        // In an ideal world, the model would be observed and the weather view model would be updated
+        self._weatherViewModel.deleteLocation(withViewModel: self)
+
+        if let managedObjectContext = self._location.managedObjectContext {
+            managedObjectContext.delete(self._location)
+            do {
+                try managedObjectContext.save()
+            } catch {
+                fatalError("Unable to save to core data")
+            }
+        }
+                
     }
 
 }

@@ -65,6 +65,9 @@
                                                     <state key="normal">
                                                         <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteLocation:" destination="dQB-Hp-XRu" eventType="touchUpInside" id="5rI-JO-6p8"/>
+                                                    </connections>
                                                 </button>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFN-cd-GO7">
                                                     <rect key="frame" x="138.5" y="137" width="137.5" height="25"/>

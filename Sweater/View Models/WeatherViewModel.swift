@@ -12,8 +12,8 @@ class WeatherViewModel {
 
     private let _persistentContainer : NSPersistentContainer
     private let _user : User
-    private var _locationViewModels : [LocationViewModel]
     
+    @Published var locationViewModels : [LocationViewModel] = []
     @Published var selectedCardIndex : Int = 0
     
     init(withPersistentContainer persistentContainer : NSPersistentContainer) {
@@ -28,7 +28,6 @@ class WeatherViewModel {
             let userRequest = NSFetchRequest<User>(entityName: "User")
             let result = try self._persistentContainer.viewContext.fetch(userRequest)
             self._user = result.first ?? User(context: persistentContainer.viewContext)
-            self._locationViewModels = []
             
             // Fetch the locations from the model, creating a 'current location' model if no locations exist
             // Take the opportunity to sort them while we're at it, based on their sortIndex
@@ -39,8 +38,8 @@ class WeatherViewModel {
                 })
                 
                 for location in sortedLocations {
-                    let viewModel = LocationViewModel(withLocation: location)
-                    self._locationViewModels.append(viewModel)
+                    let viewModel = LocationViewModel(withLocation: location, weatherViewModel: self)
+                    self.locationViewModels.append(viewModel)
                 }
             
             } else {
@@ -51,15 +50,15 @@ class WeatherViewModel {
                 currentLocation.uuid = NSUUID().uuidString
                 currentLocation.isUpdatePending = true
 
-                let viewModel = LocationViewModel(withLocation: currentLocation)
-                self._locationViewModels.append(viewModel)
+                let viewModel = LocationViewModel(withLocation: currentLocation, weatherViewModel: self)
+                self.locationViewModels.append(viewModel)
                 
             }
             
         } catch {
             assert(false, "There was an error loading from core data")
             self._user = User(context: persistentContainer.viewContext)
-            self._locationViewModels = []
+            self.locationViewModels = []
         }
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
@@ -77,7 +76,7 @@ class WeatherViewModel {
         var selectedIndex = 0
         
         if let visibleCityId = self._user.lastVisibleCityId {
-            for (i, location) in self._locationViewModels.enumerated() {
+            for (i, location) in self.locationViewModels.enumerated() {
                 if location.cityId() == visibleCityId {
                     selectedIndex = i
                 }
@@ -92,9 +91,20 @@ class WeatherViewModel {
         self._user.lastVisibleCityId = id
         updateSelectedCard()
     }
+            
+    func deleteLocation(withViewModel locationViewModel : LocationViewModel) {
+
+        var selectedIndex = 0
+
+        for (i, location) in self.locationViewModels.enumerated() {
+            if location == locationViewModel {
+                print("Found matching models: \(location.cityId()), \(locationViewModel.cityId())")
+                selectedIndex = i
+            }
+        }
         
-    func locationViewModels() -> [LocationViewModel] {
-        return self._locationViewModels
+        self.locationViewModels.remove(at: selectedIndex)
+        
     }
     
 }

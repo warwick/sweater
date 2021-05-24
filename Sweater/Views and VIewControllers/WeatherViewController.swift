@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
     var viewModel : WeatherViewModel?
     var selectedCardListener : AnyCancellable?
+    var locationsListener : AnyCancellable?
     private lazy var dataSource = makeDataSource()
 
     override func viewDidLoad() {
@@ -34,9 +35,16 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         selectedCardListener = viewModel?.$selectedCardIndex.sink(receiveValue: { index in
             self.configurePageControl(withIndex: index)
         })
-        
+
+        locationsListener = viewModel?.$locationViewModels.sink(receiveValue: { locationViewModels in
+            self.applySnapshot(withLocationViewModels: locationViewModels, animatingDifferences: true)
+        })
+
         self.collectionView.dataSource = dataSource
-        applySnapshot()
+        
+        if let locationViewModels = viewModel?.locationViewModels {
+            applySnapshot(withLocationViewModels: locationViewModels)
+        }
 
     }
     
@@ -68,15 +76,11 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         
     }
     
-    func applySnapshot(animatingDifferences : Bool = true) {
-
-        guard let viewModel = viewModel else {
-            return
-        }
+    func applySnapshot(withLocationViewModels locationViewModels: [LocationViewModel], animatingDifferences : Bool = true) {
         
         var snapshot = LocationsSnapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(viewModel.locationViewModels())
+        snapshot.appendItems(locationViewModels)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
         
         configurePageControl(withIndex: pageControl.currentPage)
@@ -128,5 +132,5 @@ class WeatherViewController: UIViewController, UIScrollViewDelegate, UICollectio
         }
 
     }
-
+    
 }
