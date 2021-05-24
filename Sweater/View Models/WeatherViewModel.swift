@@ -101,13 +101,7 @@ class WeatherViewModel {
     func setSelectedCity(withId id : String) {
         
         self._user.lastVisibleCityId = id
-        
-        do {
-            try self._user.managedObjectContext?.save()
-        } catch {
-            fatalError("Could not save core data")
-        }
-        
+                
         updateSelectedCard()
         
     }

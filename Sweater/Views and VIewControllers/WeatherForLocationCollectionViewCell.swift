@@ -35,7 +35,7 @@ class WeatherForLocationCollectionViewCell: UICollectionViewCell {
         currentLocationLabel.isHidden = !viewModel.isCurrentLocation()
         temperature.text = viewModel.temperature
         degreesLabel.isHidden = !viewModel.temperatureAvailable
-        cityName.text = viewModel.cityName()
+        cityName.text = viewModel.cityName
         weatherDescription.text = viewModel.weatherDescription
         flavourText.text = viewModel.flavourText
         

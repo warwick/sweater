@@ -19,12 +19,12 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var wind: UILabel!
     @IBOutlet weak var humidity: UILabel!
 
+    var cityNameListener : AnyCancellable?
     var weatherDescriptionListener : AnyCancellable?
     var highListener : AnyCancellable?
     var lowListener : AnyCancellable?
     var windListener : AnyCancellable?
     var humidityListener : AnyCancellable?
-
     
     override func viewDidLoad() {
         
@@ -32,13 +32,17 @@ class WeatherDetailViewController: UIViewController {
             return
         }
         
-        cityName.text = viewModel.cityName()
+        cityName.text = viewModel.cityName
         weatherDescription.text = viewModel.weatherDescription
         high.text = viewModel.todaysHigh
         low.text = viewModel.todaysLow
         wind.text = viewModel.todaysWind
         humidity.text = viewModel.todaysHumidity
         
+        cityNameListener = viewModel.$cityName.sink(receiveValue: { value in
+            self.cityName.text = value
+        })
+
         weatherDescriptionListener = viewModel.$weatherDescription.sink(receiveValue: { value in
             self.weatherDescription.text = value
         })
@@ -62,6 +66,7 @@ class WeatherDetailViewController: UIViewController {
     }
     
     func cancelListeners() {
+        cityNameListener?.cancel()
         weatherDescriptionListener?.cancel()
         highListener?.cancel()
         lowListener?.cancel()

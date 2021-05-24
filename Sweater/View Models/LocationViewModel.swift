@@ -19,6 +19,7 @@ class LocationViewModel : Hashable {
     let unsetDoubleValue = -999.0
     let unsetIntValue = -999
 
+    @Published var cityName = "--"
     @Published var weatherDescription = ""
     @Published var temperature = "--"
     @Published var temperatureAvailable = false
@@ -39,6 +40,7 @@ class LocationViewModel : Hashable {
         self._networkClient.lookupWeather()
                 
         // Update the view model with values that are saved in core data
+        updateCityName()
         updateWeatherDescription()
         updateTemperature()
         updateTodaysHigh()
@@ -66,11 +68,7 @@ class LocationViewModel : Hashable {
     func isCurrentLocation() -> Bool {
         return self._location.isCurrentLocation
     }
-    
-    func cityName() -> String {
-        return self._location.cityName ?? NSLocalizedString("--", comment: "Unknown City")
-    }
-    
+        
     func cityId() -> String {
         return self._location.cityId ?? "UNKNOWN"
     }
@@ -102,6 +100,7 @@ class LocationViewModel : Hashable {
         }
 
         // I'd prefer to do this with callbacks on observed changes, but since Core Data doesn't seem to be marking properties as @Published, we'll update here.  Googling around indicates that it's buggy behaviour others are running into as well.
+        updateCityName()
         updateWeatherDescription()
         updateTemperature()
         updateTodaysHigh()
@@ -111,6 +110,10 @@ class LocationViewModel : Hashable {
         
     }
     
+    func updateCityName() {
+        self.cityName = self._location.cityName ?? NSLocalizedString("--", comment: "Unknown City")
+    }
+
     func updateWeatherDescription() {
         self.weatherDescription = self._location.cachedDescription ?? ""
     }
@@ -267,5 +270,16 @@ class LocationViewModel : Hashable {
         }
                 
     }
+    
+    func setCity(_ cityName : String, andCityId identifier : String) {
+        
+        // This is used when we're a 'current location' view model and we've found the location we're in now
+        self._location.cityName = cityName
+        self._location.cityId = identifier
+        
+        self._networkClient.lookupWeather()
+
+    }
+
 
 }

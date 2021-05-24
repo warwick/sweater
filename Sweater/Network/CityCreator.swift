@@ -34,9 +34,6 @@ class CityCreator: NSObject {
                     viewModel.addNewLocation(withCityName: city, identifier: identifier)
                 }
                 
-//              if let weatherData = graphQLResult.data?.getCityById?.first??.weather {
-//                  viewModel.update(withWeatherData: weatherData)
-//              }
             case .failure(let error):
                 print("Failure: \(error)")
                 self.showErrorAlert()
