@@ -137,6 +137,9 @@ class WeatherViewModel {
 
         let viewModel = LocationViewModel(withLocation: newCity, weatherViewModel: self)
         self.locationViewModels.append(viewModel)
+        
+        // Scroll to the city we just added
+        setSelectedCity(withId: identifier)
 
     }
             
